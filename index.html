@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>张睿 — 内容运营 / 编导</title>
+<title>张睿 — 新媒体运营 / 内容编导</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap');
 
@@ -17,19 +17,17 @@
     --text-secondary: #a1a1aa;
     --text-tertiary: #6b6b76;
     --accent: #fafafa;
-    --accent-dim: #d4d4d8;
     --green: #4ade80;
-    --green-bg: rgba(74,222,128,0.08);
+    --green-bg: rgba(74,222,128,0.07);
     --amber: #fbbf24;
-    --amber-bg: rgba(251,191,36,0.08);
+    --amber-bg: rgba(251,191,36,0.07);
     --blue: #60a5fa;
-    --blue-bg: rgba(96,165,250,0.08);
-    --glow-green: 0 0 24px rgba(74,222,128,0.15);
-    --glow-amber: 0 0 24px rgba(251,191,36,0.15);
-    --glow-blue: 0 0 24px rgba(96,165,250,0.15);
+    --blue-bg: rgba(96,165,250,0.07);
+    --purple: #c084fc;
+    --purple-bg: rgba(192,132,252,0.07);
     --radius: 14px;
     --radius-sm: 8px;
-    --max-width: 960px;
+    --max-width: 920px;
     --nav-height: 56px;
   }
 
@@ -43,10 +41,9 @@
     font-weight: 400;
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
   }
 
-  /* ═══════════ NAV ═══════════ */
+  /* ── NAV ── */
   .nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -58,515 +55,185 @@
     border-bottom: 1px solid rgba(255,255,255,0.06);
     transition: background 0.3s, border-color 0.3s;
   }
-  .nav.scrolled {
-    background: rgba(8,8,11,0.88);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-  }
-
+  .nav.scrolled { background: rgba(8,8,11,0.88); border-bottom: 1px solid rgba(255,255,255,0.1); }
   .nav-inner {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 24px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    max-width: var(--max-width); margin: 0 auto; padding: 0 24px;
+    height: 100%; display: flex; align-items: center; justify-content: space-between;
   }
+  .nav-logo { font-family: 'Inter',sans-serif; font-size: 15px; font-weight: 700; letter-spacing: -0.01em; color: var(--accent); text-decoration: none; }
+  .nav-links { display: flex; gap: 26px; list-style: none; }
+  .nav-links a { color: var(--text-tertiary); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.02em; transition: color 0.25s; border: none; }
+  .nav-links a:hover, .nav-links a.active { color: var(--text); }
 
-  .nav-logo {
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    color: var(--accent);
-    text-decoration: none;
+  /* ── TYPOGRAPHY ── */
+  .section-num {
+    font-family: 'Inter',sans-serif; font-size: 13px; font-weight: 700;
+    letter-spacing: 0.06em; color: var(--text-tertiary); margin-bottom: 8px;
+    display: flex; align-items: center; gap: 10px;
   }
+  .section-num::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
-  .nav-links {
-    display: flex;
-    gap: 28px;
-    list-style: none;
-  }
+  h2 { font-size: 30px; font-weight: 700; letter-spacing: -0.025em; line-height: 1.25; margin-bottom: 20px; color: var(--accent); }
+  h3 { font-size: 19px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 10px; }
+  p, li { color: var(--text-secondary); font-size: 15px; line-height: 1.8; }
+  a { color: var(--text); text-decoration: none; border-bottom: 1px solid var(--border-hover); transition: border-color 0.2s, color 0.2s; }
+  a:hover { border-color: var(--accent); }
 
-  .nav-links a {
-    color: var(--text-tertiary);
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-    transition: color 0.25s;
-    border: none;
-  }
-  .nav-links a:hover,
-  .nav-links a.active { color: var(--text); }
-
-  /* ── Section Labels ── */
-  .section-label {
-    font-family: 'Inter', monospace;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--text-tertiary);
-    margin-bottom: 20px;
-    opacity: 0.8;
-  }
-
-  h2 {
-    font-size: 30px;
-    font-weight: 700;
-    letter-spacing: -0.025em;
-    line-height: 1.25;
-    margin-bottom: 20px;
-    color: var(--accent);
-  }
-
-  h3 {
-    font-size: 19px;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    margin-bottom: 10px;
-  }
-
-  p { color: var(--text-secondary); font-size: 15px; line-height: 1.8; }
-
-  a {
-    color: var(--text);
-    text-decoration: none;
-    border-bottom: 1px solid var(--border-hover);
-    transition: border-color 0.2s, color 0.2s;
-  }
-  a:hover { border-color: var(--accent-dim); }
-
-  /* ── Layout ── */
-  .container {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-
-  section {
-    padding: 120px 0;
-    border-bottom: 1px solid var(--border);
-  }
+  /* ── LAYOUT ── */
+  .container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
+  section { padding: 120px 0; border-bottom: 1px solid var(--border); }
   section:last-of-type { border-bottom: none; }
 
-  /* ═══════════ HERO ═══════════ */
+  /* ═══════════ 01 HERO ═══════════ */
   .hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
     padding: calc(var(--nav-height) + 80px) 0 100px;
-    border-bottom: 1px solid var(--border);
-    position: relative;
-    overflow: hidden;
+    border-bottom: 1px solid var(--border); position: relative; overflow: hidden;
   }
-
-  /* subtle bg grain via radial gradient */
   .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 60% 50% at 50% 40%, rgba(120,120,150,0.06) 0%, transparent 100%);
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 55% 45% at 50% 35%, rgba(120,120,150,0.05) 0%, transparent 100%);
     pointer-events: none;
   }
-
-  .hero-inner {
-    display: flex;
-    align-items: center;
-    gap: 52px;
-    position: relative;
-    z-index: 1;
-  }
-
+  .hero-inner { display: flex; align-items: center; gap: 52px; position: relative; z-index: 1; }
   .hero-photo {
-    flex-shrink: 0;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 2px solid var(--border);
-    background: var(--surface-2);
+    flex-shrink: 0; width: 150px; height: 150px; border-radius: 50%;
+    overflow: hidden; border: 2px solid var(--border); background: var(--surface-2);
     transition: border-color 0.4s, box-shadow 0.4s;
   }
-  .hero-photo:hover {
-    border-color: var(--border-hover);
-    box-shadow: 0 0 40px rgba(200,200,220,0.06);
-  }
-  .hero-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
+  .hero-photo:hover { border-color: var(--border-hover); box-shadow: 0 0 40px rgba(200,200,220,0.05); }
+  .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
   .hero-text { flex: 1; }
-
-  .hero-name {
-    font-size: clamp(42px, 7vw, 68px);
-    font-weight: 800;
-    letter-spacing: -0.035em;
-    line-height: 1.05;
-    color: var(--accent);
-    margin-bottom: 18px;
-  }
-
-  .hero-tagline {
-    font-size: 18px;
-    color: var(--text-secondary);
-    font-weight: 400;
-    margin-bottom: 48px;
-    max-width: 500px;
-    line-height: 1.65;
-  }
-
-  .hero-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    overflow: hidden;
-    position: relative;
-    z-index: 1;
-  }
-
-  .hero-stat {
-    background: var(--surface);
-    padding: 30px 28px;
-    text-align: center;
-    transition: background 0.3s;
-  }
-  .hero-stat:hover { background: var(--surface-2); }
-
-  .hero-stat-value {
-    font-family: 'Inter', sans-serif;
-    font-size: 34px;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    color: var(--accent);
-    display: block;
-    margin-bottom: 6px;
-  }
-
-  .hero-stat-label {
-    font-size: 13px;
-    color: var(--text-tertiary);
-    font-weight: 500;
-    letter-spacing: 0.03em;
-  }
-
-  .hero-stat:nth-child(1) .hero-stat-value { color: var(--green); }
-  .hero-stat:nth-child(2) .hero-stat-value { color: var(--amber); }
-  .hero-stat:nth-child(3) .hero-stat-value { color: var(--blue); }
-
+  .hero-name { font-size: clamp(42px,7vw,68px); font-weight: 800; letter-spacing: -0.035em; line-height: 1.05; color: var(--accent); margin-bottom: 16px; }
+  .hero-tagline { font-size: 18px; color: var(--text-secondary); font-weight: 400; margin-bottom: 32px; max-width: 520px; line-height: 1.65; }
   .hero-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 36px;
-    padding: 12px 26px;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    border: 1px solid var(--border-hover);
-    border-radius: 100px;
-    color: var(--text);
-    text-decoration: none;
-    transition: all 0.3s;
-    position: relative;
-    z-index: 1;
-    cursor: pointer;
+    display: inline-flex; align-items: center; gap: 8px; padding: 12px 26px;
+    font-size: 14px; font-weight: 600; letter-spacing: 0.02em;
+    border: 1px solid var(--border-hover); border-radius: 100px; color: var(--text);
+    text-decoration: none; transition: all 0.3s; cursor: pointer; position: relative; z-index: 1;
   }
-  .hero-cta:hover {
-    background: var(--surface-2);
-    border-color: var(--accent-dim);
-    box-shadow: 0 0 28px rgba(200,200,220,0.06);
-  }
+  .hero-cta:hover { background: var(--surface-2); border-color: var(--accent); box-shadow: 0 0 28px rgba(200,200,220,0.05); }
   .hero-cta svg { transition: transform 0.3s; }
   .hero-cta:hover svg { transform: translateY(2px); }
 
-  /* ═══════════ ABOUT ═══════════ */
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 52px;
-    align-items: start;
-  }
+  /* stats row */
+  .hero-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; position: relative; z-index: 1; }
+  .hero-stat { background: var(--surface); padding: 30px 28px; text-align: center; transition: background 0.3s; }
+  .hero-stat:hover { background: var(--surface-2); }
+  .hero-stat-value { font-family: 'Inter',sans-serif; font-size: 34px; font-weight: 700; letter-spacing: -0.02em; color: var(--accent); display: block; margin-bottom: 6px; }
+  .hero-stat-label { font-size: 13px; color: var(--text-tertiary); font-weight: 500; letter-spacing: 0.03em; }
+  .hero-stat:nth-child(1) .hero-stat-value { color: var(--green); }
+  .hero-stat:nth-child(2) .hero-stat-value { color: var(--amber); }
+  .hero-stat:nth-child(3) .hero-stat-value { color: var(--purple); }
 
-  .about-text p { margin-bottom: 18px; }
-  .about-text p:last-child { margin-bottom: 0; }
+  /* ── SKILL TAGS ── */
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; position: relative; z-index: 1; }
+  .skill-tag { font-size: 12px; font-weight: 500; letter-spacing: 0.03em; padding: 6px 14px; border-radius: 100px; background: var(--surface-2); border: 1px solid var(--border); color: var(--text-secondary); transition: all 0.25s; }
+  .skill-tag:hover { border-color: var(--border-hover); color: var(--text); }
 
-  .about-side {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-  }
-
-  .skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .skill-tag {
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.03em;
-    padding: 6px 14px;
-    border-radius: 100px;
-    background: var(--surface-2);
-    border: 1px solid var(--border);
-    color: var(--text-secondary);
-    transition: all 0.25s;
-  }
-  .skill-tag:hover {
-    border-color: var(--border-hover);
-    color: var(--text);
-  }
-
-  .meta-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    overflow: hidden;
-  }
-
-  .meta-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 13px 18px;
-    background: var(--surface);
-    transition: background 0.25s;
-  }
+  /* ── META LIST ── */
+  .meta-list { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius-sm); overflow: hidden; }
+  .meta-row { display: flex; justify-content: space-between; padding: 13px 18px; background: var(--surface); transition: background 0.25s; }
   .meta-row:hover { background: var(--surface-2); }
   .meta-label { color: var(--text-tertiary); font-size: 13px; font-weight: 500; }
   .meta-value { color: var(--text); font-size: 14px; font-weight: 500; }
 
-  /* ═══════════ PROJECT CARDS ═══════════ */
-  .project-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
+  /* ═══════════ 02 CASE CARDS ═══════════ */
+  .case-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
 
-  .project-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 44px;
-    transition: all 0.4s cubic-bezier(0.25,0.1,0.25,1);
-    position: relative;
-    overflow: hidden;
-    cursor: default;
+  .case-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 44px; transition: all 0.4s cubic-bezier(0.25,0.1,0.25,1); position: relative; overflow: hidden;
   }
+  .case-card:hover { border-color: var(--border-hover); background: var(--surface-2); transform: translateY(-2px); }
+  .case-card::before { content: ''; position: absolute; top: 0; left: 44px; right: 44px; height: 1px; background: var(--border); transition: background 0.4s; }
+  .case-card.glow-green:hover { box-shadow: 0 0 24px rgba(74,222,128,0.12); }
+  .case-card.glow-green:hover::before { background: rgba(74,222,128,0.35); }
+  .case-card.glow-amber:hover { box-shadow: 0 0 24px rgba(251,191,36,0.12); }
+  .case-card.glow-amber:hover::before { background: rgba(251,191,36,0.35); }
+  .case-card.glow-blue:hover { box-shadow: 0 0 24px rgba(96,165,250,0.12); }
+  .case-card.glow-blue:hover::before { background: rgba(96,165,250,0.35); }
 
-  /* glow on hover */
-  .project-card:hover {
-    border-color: var(--border-hover);
-    background: var(--surface-2);
-    transform: translateY(-2px);
-  }
-  .project-card.glow-green:hover  { box-shadow: var(--glow-green); }
-  .project-card.glow-amber:hover  { box-shadow: var(--glow-amber); }
-  .project-card.glow-blue:hover   { box-shadow: var(--glow-blue); }
-
-  /* accent line on top */
-  .project-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 44px; right: 44px;
-    height: 1px;
-    background: var(--border);
-    transition: background 0.4s;
-  }
-  .project-card.glow-green:hover::before  { background: rgba(74,222,128,0.35); }
-  .project-card.glow-amber:hover::before  { background: rgba(251,191,36,0.35); }
-  .project-card.glow-blue:hover::before   { background: rgba(96,165,250,0.35); }
-
-  .project-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-
-  .project-title {
-    font-size: 21px;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-  }
-
-  .project-badge {
-    font-family: 'Inter', sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    padding: 5px 12px;
-    border-radius: 100px;
-    letter-spacing: 0.04em;
-  }
+  .case-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; flex-wrap: wrap; gap: 12px; }
+  .case-title { font-size: 21px; font-weight: 600; letter-spacing: -0.01em; }
+  .case-subtitle { font-size: 14px; color: var(--text-tertiary); font-weight: 500; margin-bottom: 18px; }
+  .case-badge { font-family: 'Inter',sans-serif; font-size: 11px; font-weight: 600; padding: 5px 12px; border-radius: 100px; letter-spacing: 0.04em; }
   .badge-green { background: var(--green-bg); color: var(--green); }
   .badge-amber { background: var(--amber-bg); color: var(--amber); }
   .badge-blue  { background: var(--blue-bg);  color: var(--blue); }
 
-  .project-desc {
-    margin-bottom: 24px;
-    color: var(--text-secondary);
-    font-size: 15px;
-    line-height: 1.75;
-  }
+  .case-body { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; margin-top: 20px; }
+  .case-desc p { margin-bottom: 14px; }
+  .case-desc p:last-child { margin-bottom: 0; }
+  .case-desc strong { color: var(--text); }
 
-  .project-metrics {
-    display: flex;
-    gap: 36px;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
+  .case-media {
+    background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-sm);
+    overflow: hidden; transition: border-color 0.3s; cursor: pointer;
   }
+  .case-media:hover { border-color: var(--border-hover); }
+  .case-media img { width: 100%; height: auto; display: block; }
 
-  .metric-value {
-    font-family: 'Inter', sans-serif;
-    font-size: 26px;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    color: var(--accent);
-  }
-  .metric-label {
-    font-size: 12px;
-    color: var(--text-tertiary);
-    font-weight: 500;
-    letter-spacing: 0.03em;
-    margin-top: 3px;
-  }
+  .case-metrics { display: flex; gap: 32px; margin: 18px 0; flex-wrap: wrap; }
+  .metric-value { font-family: 'Inter',sans-serif; font-size: 24px; font-weight: 700; letter-spacing: -0.02em; color: var(--accent); }
+  .metric-label { font-size: 12px; color: var(--text-tertiary); font-weight: 500; letter-spacing: 0.03em; margin-top: 3px; }
 
-  .project-role {
-    border-top: 1px solid var(--border);
-    padding-top: 18px;
-    margin-top: 4px;
-    font-size: 13px;
-    color: var(--text-tertiary);
-    line-height: 1.7;
-  }
-  .project-role strong { color: var(--text); font-weight: 600; }
+  .brand-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0; }
+  .brand-chip { font-size: 12px; font-weight: 500; letter-spacing: 0.02em; padding: 5px 12px; border-radius: 100px; background: var(--amber-bg); border: 1px solid rgba(251,191,36,0.15); color: var(--amber); }
 
-  /* placeholder media */
-  .placeholder-media {
-    background: var(--surface-2);
-    border: 1px dashed var(--border);
-    border-radius: var(--radius-sm);
-    padding: 44px 24px;
-    text-align: center;
-    color: var(--text-tertiary);
-    font-size: 13px;
-    margin-bottom: 24px;
-    transition: border-color 0.3s;
-  }
-  .placeholder-media:hover { border-color: var(--border-hover); }
-  .placeholder-media span {
-    display: block;
-    font-size: 28px;
-    margin-bottom: 8px;
-  }
+  /* ── SOP FLOW ── */
+  .sop-flow { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin: 24px 0; }
+  .sop-step { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 24px 20px; text-align: center; transition: all 0.3s; }
+  .sop-step:hover { border-color: var(--border-hover); background: var(--surface-2); transform: translateY(-2px); }
+  .sop-step-num { font-family: 'Inter',sans-serif; font-size: 28px; font-weight: 800; letter-spacing: -0.02em; color: var(--border-hover); margin-bottom: 8px; }
+  .sop-step-title { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+  .sop-step-desc { font-size: 12px; color: var(--text-tertiary); line-height: 1.55; }
 
-  /* ═══════════ STRENGTHS ═══════════ */
-  .strength-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
+  /* ═══════════ 03 AESTHETIC ═══════════ */
+  .aesthetic-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+  .aesthetic-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 34px 28px; transition: all 0.35s; }
+  .aesthetic-card:hover { border-color: var(--border-hover); background: var(--surface-2); transform: translateY(-2px); box-shadow: 0 0 28px rgba(200,200,220,0.03); }
+  .aesthetic-icon { font-size: 30px; margin-bottom: 14px; display: block; }
+  .aesthetic-title { font-size: 16px; font-weight: 600; margin-bottom: 10px; color: var(--text); }
+  .aesthetic-desc { font-size: 13px; color: var(--text-tertiary); line-height: 1.7; }
+  .aesthetic-desc strong { color: var(--text-secondary); }
 
-  .strength-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 36px;
-    transition: all 0.35s cubic-bezier(0.25,0.1,0.25,1);
-    position: relative;
+  /* ── screenshot showcase ── */
+  .screenshot-showcase {
+    margin-top: 32px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: border-color 0.3s;
   }
-  .strength-card:hover {
-    border-color: var(--border-hover);
-    background: var(--surface-2);
-    transform: translateY(-2px);
-    box-shadow: 0 0 30px rgba(200,200,220,0.04);
-  }
+  .screenshot-showcase:hover { border-color: var(--border-hover); }
+  .screenshot-showcase img { width: 100%; height: auto; display: block; }
+  .screenshot-caption { padding: 14px 20px; font-size: 12px; color: var(--text-tertiary); letter-spacing: 0.03em; border-top: 1px solid var(--border); }
 
-  .strength-icon {
-    font-size: 28px;
-    margin-bottom: 14px;
-    display: block;
-  }
+  /* ═══════════ 04 METHODOLOGY ═══════════ */
+  .method-flow { display: flex; flex-direction: column; gap: 16px; margin: 24px 0; }
+  .method-step { display: flex; gap: 20px; align-items: flex-start; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 24px 28px; transition: all 0.3s; }
+  .method-step:hover { border-color: var(--border-hover); background: var(--surface-2); }
+  .method-step-num { flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%; background: var(--surface-2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-family: 'Inter',sans-serif; font-size: 15px; font-weight: 700; color: var(--text-secondary); }
+  .method-step-content h4 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+  .method-step-content p { font-size: 13px; color: var(--text-tertiary); line-height: 1.65; }
 
-  .strength-title {
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    margin-bottom: 8px;
-    color: var(--text);
-  }
-
-  .strength-desc {
-    font-size: 13px;
-    color: var(--text-tertiary);
-    line-height: 1.65;
-  }
+  .solution-types { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; margin: 28px 0; }
+  .solution-type { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 22px 16px; text-align: center; transition: all 0.3s; }
+  .solution-type:hover { border-color: var(--purple); background: var(--surface-2); }
+  .solution-type-icon { font-size: 22px; margin-bottom: 8px; display: block; }
+  .solution-type-name { font-size: 13px; font-weight: 600; color: var(--text); }
 
   /* ═══════════ CONTACT ═══════════ */
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-  }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
   .contact-item { margin-bottom: 28px; }
-  .contact-label {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    color: var(--text-tertiary);
-    margin-bottom: 8px;
-  }
-  .contact-value {
-    font-size: 17px;
-    font-weight: 500;
-    color: var(--text);
-  }
-  .contact-placeholder {
-    color: var(--text-tertiary);
-    font-size: 15px;
-  }
+  .contact-label { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; color: var(--text-tertiary); margin-bottom: 8px; }
+  .contact-value { font-size: 17px; font-weight: 500; color: var(--text); }
 
-  /* ═══════════ FOOTER ═══════════ */
-  footer {
-    padding: 48px 0;
-    text-align: center;
-    color: var(--text-tertiary);
-    font-size: 13px;
-    border-top: 1px solid var(--border);
-  }
+  /* ── FOOTER ── */
+  footer { padding: 48px 0; text-align: center; color: var(--text-tertiary); font-size: 13px; border-top: 1px solid var(--border); }
 
-  /* ═══════════ SCROLL ANIMATIONS ═══════════ */
-  .reveal {
-    opacity: 0;
-    transform: translateY(32px);
-    transition: opacity 0.7s cubic-bezier(0.25,0.1,0.25,1),
-                transform 0.7s cubic-bezier(0.25,0.1,0.25,1);
-  }
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  /* ═══════════ ANIMATIONS ═══════════ */
+  .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s cubic-bezier(0.25,0.1,0.25,1), transform 0.7s cubic-bezier(0.25,0.1,0.25,1); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  /* staggered delays for children */
-  .reveal-stagger > * {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.6s cubic-bezier(0.25,0.1,0.25,1),
-                transform 0.6s cubic-bezier(0.25,0.1,0.25,1);
-  }
+  .reveal-stagger > * { opacity: 0; transform: translateY(24px); transition: opacity 0.6s cubic-bezier(0.25,0.1,0.25,1), transform 0.6s cubic-bezier(0.25,0.1,0.25,1); }
   .reveal-stagger.visible > *:nth-child(1) { transition-delay: 0s;    opacity: 1; transform: translateY(0); }
   .reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.1s;  opacity: 1; transform: translateY(0); }
   .reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.2s;  opacity: 1; transform: translateY(0); }
@@ -576,21 +243,22 @@
 
   /* ═══════════ RESPONSIVE ═══════════ */
   @media (max-width: 700px) {
-    .nav-links { gap: 16px; }
-    .nav-links a { font-size: 12px; }
+    .nav-links { gap: 14px; }
+    .nav-links a { font-size: 11px; }
     .hero-stats { grid-template-columns: 1fr; }
-    .hero-stat { padding: 22px 18px; }
+    .hero-stat { padding: 20px 16px; }
     .hero-stat-value { font-size: 28px; }
-    .hero-inner { flex-direction: column; gap: 32px; text-align: center; }
+    .hero-inner { flex-direction: column; gap: 28px; text-align: center; }
     .hero-photo { width: 120px; height: 120px; }
     .hero-tagline { max-width: 100%; }
-    .about-grid { grid-template-columns: 1fr; gap: 36px; }
+    .case-body { grid-template-columns: 1fr; gap: 24px; }
+    .case-card { padding: 28px; }
+    .case-card::before { left: 28px; right: 28px; }
+    .sop-flow { grid-template-columns: repeat(2,1fr); }
+    .aesthetic-grid { grid-template-columns: 1fr; }
+    .solution-types { grid-template-columns: repeat(2,1fr); }
     .contact-grid { grid-template-columns: 1fr; gap: 20px; }
-    .strength-grid { grid-template-columns: 1fr; }
-    .project-card { padding: 28px; }
-    .project-card::before { left: 28px; right: 28px; }
-    .project-metrics { gap: 20px; }
-    .metric-value { font-size: 21px; }
+    .method-step { flex-direction: column; gap: 12px; }
     section { padding: 80px 0; }
     .hero { min-height: auto; padding: calc(var(--nav-height) + 40px) 0 64px; }
   }
@@ -598,20 +266,21 @@
 </head>
 <body>
 
-<!-- ═══════════ NAVIGATION ═══════════ -->
+<!-- ═══════════ NAV ═══════════ -->
 <nav class="nav" id="navbar">
   <div class="nav-inner">
     <a href="#hero" class="nav-logo">ZR</a>
     <ul class="nav-links">
-      <li><a href="#about" data-section="about">关于我</a></li>
-      <li><a href="#projects" data-section="projects">精选项目</a></li>
-      <li><a href="#strengths" data-section="strengths">个人优势</a></li>
-      <li><a href="#contact" data-section="contact">联系方式</a></li>
+      <li><a href="#overview" data-section="overview">01 简介</a></li>
+      <li><a href="#cases" data-section="cases">02 运营成果</a></li>
+      <li><a href="#aesthetic" data-section="aesthetic">03 内容审美</a></li>
+      <li><a href="#methodology" data-section="methodology">04 方法论</a></li>
+      <li><a href="#contact" data-section="contact">联系</a></li>
     </ul>
   </div>
 </nav>
 
-<!-- ═══════════ HERO ═══════════ -->
+<!-- ═══════════ 01 个人简介 ═══════════ -->
 <section class="hero" id="hero">
   <div class="container">
     <div class="hero-inner">
@@ -620,7 +289,7 @@
       </div>
       <div class="hero-text reveal">
         <h1 class="hero-name">张睿</h1>
-        <p class="hero-tagline">内容运营 / 编导。独立操盘账号全流程——脚本、配音、数据，一条线跑通。不涉及后期制作。</p>
+        <p class="hero-tagline">新媒体运营 / 内容编导。能独立跑通视频账号全流程——从选题脚本、配音统筹，到内容运营与数据复盘。不涉及后期制作。</p>
         <a href="#contact" class="hero-cta">
           联系我
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
@@ -637,169 +306,300 @@
         <span class="hero-stat-label">商单均播放量</span>
       </div>
       <div class="hero-stat">
-        <span class="hero-stat-value">腾讯</span>
-        <span class="hero-stat-label">综艺执行导演</span>
+        <span class="hero-stat-value">9<span style="font-size:19px;font-weight:500;">个</span></span>
+        <span class="hero-stat-label">合作游戏品牌</span>
+      </div>
+    </div>
+    <div class="skill-tags reveal">
+      <span class="skill-tag">内容策略</span>
+      <span class="skill-tag">脚本撰写</span>
+      <span class="skill-tag">账号运营</span>
+      <span class="skill-tag">数据复盘</span>
+      <span class="skill-tag">商单创意</span>
+      <span class="skill-tag">现场执行</span>
+      <span class="skill-tag">热点选题</span>
+      <span class="skill-tag">配音统筹</span>
+    </div>
+  </div>
+</section>
+
+<section id="overview">
+  <div class="container">
+    <div class="section-num reveal">01 · 个人简介</div>
+    <h2 class="reveal">关于我</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:44px;" class="reveal">
+      <div>
+        <p>南京林业大学汉语言文学专业毕业。大四进入 MCN 行业，独立操盘 B 站游戏杂谈类视频账号<b>「白泽基拉」</b>的日常运营，负责从选题、脚本、配音到发布排期与数据复盘的全流程。</p>
+        <p style="margin-top:14px;">同时为公司主推账号<b>「国电武术馆馆长」</b>撰写商单脚本，经手 9 个游戏品牌的定制内容，均播放百万级。</p>
+        <p style="margin-top:14px;">我的核心能力不是「做过什么岗位」，而是<b>「拿到一个选题，能从脚本写到发布」</b>——并且知道怎么让内容被算法看到、被观众喜欢、被品牌认可。</p>
+      </div>
+      <div class="meta-list">
+        <div class="meta-row"><span class="meta-label">运营账号</span><span class="meta-value">白泽基拉（B站）</span></div>
+        <div class="meta-row"><span class="meta-label">商单服务</span><span class="meta-value">国电武术馆馆长</span></div>
+        <div class="meta-row"><span class="meta-label">专业背景</span><span class="meta-value">汉语言文学</span></div>
+        <div class="meta-row"><span class="meta-label">所在地</span><span class="meta-value">南京</span></div>
+        <div class="meta-row"><span class="meta-label">求职方向</span><span class="meta-value">新媒体运营 / MCN编导 / 品牌新媒体</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════ ABOUT / 个人经历 ═══════════ -->
-<section id="about">
+<!-- ═══════════ 02 平台运营及成果 ═══════════ -->
+<section id="cases">
   <div class="container">
-    <div class="section-label reveal">个人经历</div>
-    <div class="about-grid">
-      <div class="about-text reveal">
-        <h2>关于我</h2>
-        <p>南京林业大学汉语言文学专业毕业。大四进入 MCN 行业，从脚本撰写到账号运营，独立跑通了内容生产的完整链路。</p>
-        <p>我相信内容的价值在于系统——单条爆款是运气，可持续的内容方法论才是能力。我的核心优势不是「写过爆款」，而是「知道怎么让一个账号稳定产出能接商单的内容」。</p>
-      </div>
-      <div class="about-side reveal">
-        <div class="skill-tags">
-          <span class="skill-tag">内容策略</span>
-          <span class="skill-tag">脚本撰写</span>
-          <span class="skill-tag">账号运营</span>
-          <span class="skill-tag">数据复盘</span>
-          <span class="skill-tag">商单创意</span>
-          <span class="skill-tag">现场执行</span>
-        </div>
-        <div class="meta-list">
-          <div class="meta-row"><span class="meta-label">专业</span><span class="meta-value">汉语言文学</span></div>
-          <div class="meta-row"><span class="meta-label">所在地</span><span class="meta-value">南京</span></div>
-          <div class="meta-row"><span class="meta-label">求职方向</span><span class="meta-value">内容运营 / MCN编导 / 品牌新媒体</span></div>
-          <div class="meta-row"><span class="meta-label">工作模式</span><span class="meta-value">远程 / 南京</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════ PROJECTS / 精选项目 ═══════════ -->
-<section id="projects">
-  <div class="container">
-    <div class="section-label reveal">精选项目</div>
+    <div class="section-num reveal">02 · 平台运营及成果</div>
     <h2 class="reveal">我做了什么</h2>
 
-    <div class="project-grid reveal-stagger">
+    <div class="case-grid reveal-stagger">
 
-      <!-- 项目1：账号运营 -->
-      <div class="project-card glow-green">
-        <div class="project-header">
-          <div class="project-title">账号运营 · 16w → 18.5w</div>
-          <span class="project-badge badge-green">独立操盘</span>
+      <!-- CASE 1: 白泽基拉 -->
+      <div class="case-card glow-green">
+        <div class="case-header">
+          <div>
+            <div class="case-title">视频账号全流程运营 · 白泽基拉</div>
+            <div class="case-subtitle">B站 · 游戏杂谈赛道 · 仍在运营</div>
+          </div>
+          <span class="case-badge badge-green">独立操盘</span>
         </div>
-        <p class="project-desc">独立负责脚本撰写、配音统筹、发布排期、数据监控与内容迭代。建立了从「选题→脚本→配音→发布→数据复盘」的标准化工作流。</p>
-        <div class="project-metrics">
+        <div class="case-body">
+          <div class="case-desc">
+            <p><strong>策划思路：</strong>定位游戏杂谈——不追单一游戏热点，而是围绕游戏文化、玩家记忆、设计趣闻等泛游戏话题展开，降低对特定游戏生命周期的依赖。</p>
+            <p><strong>具体动作：</strong>建立「选题→脚本→配音统筹→发布排期→数据复盘」标准化工作流。每期内容出稿后根据 24h 互动数据判断是否追投。持续优化标题话术与封面风格，提升 CTR。</p>
+            <p><strong>结果：</strong>运营期间粉丝从 16w 增长至 18.5w，均播放稳定在 16w 左右，多条内容突破 30w 播放。账号内容调性从零散选题逐步聚焦，形成了可辨识的杂谈风格。</p>
+          </div>
+          <div>
+            <div class="case-media">
+              <a href="https://space.bilibili.com/442595489" target="_blank" title="点击查看白泽基拉B站主页">
+                <img src="homepage-screenshot.png" alt="白泽基拉B站主页截图">
+              </a>
+            </div>
+            <div style="text-align:center;margin-top:8px;font-size:12px;color:var(--text-tertiary);">▲ 白泽基拉 B站主页 · <a href="https://space.bilibili.com/442595489" target="_blank" style="font-size:12px;">space.bilibili.com/442595489</a></div>
+          </div>
+        </div>
+        <div class="case-metrics">
           <div><span class="metric-value">+2.5w</span><div class="metric-label">净增粉丝</div></div>
           <div><span class="metric-value">16w</span><div class="metric-label">均播放量</div></div>
+          <div><span class="metric-value">30w+</span><div class="metric-label">单条峰值</div></div>
           <div><span class="metric-value">全流程</span><div class="metric-label">独立负责</div></div>
         </div>
-        <div class="placeholder-media">
-          <span>📊</span>
-          数据截图占位 —— 替换为账号数据趋势截图
+      </div>
+
+      <!-- CASE 2: 国电武术馆馆长 商单 -->
+      <div class="case-card glow-amber">
+        <div class="case-header">
+          <div>
+            <div class="case-title">商单脚本策划 · 国电武术馆馆长</div>
+            <div class="case-subtitle">为 B站头部游戏账号提供品牌定制内容</div>
+          </div>
+          <span class="case-badge badge-amber">百万播放</span>
         </div>
-        <div class="project-role">
-          <strong>我的角色：</strong>日常内容策略与执行，独立撰写全部日常脚本，配音统筹与发布排期，数据监控与迭代优化。后期制作由剪辑团队负责。
+        <div class="case-body">
+          <div class="case-desc">
+            <p><strong>策划思路：</strong>游戏商单的核心不是「介绍产品多好玩」，而是找到产品与玩家已有兴趣的交叉点。每次拿 brief 后，先拆解品牌核心卖点 → 匹配账号受众画像 → 找到既能承载品牌信息、又能让观众看完的叙事角度。</p>
+            <p><strong>具体动作：</strong>独立完成创意策划与脚本撰写，涵盖大纲→初稿→批注修改→配音适配全流程。每篇脚本都经历「品牌需求理解 → 游戏体验 → 叙事结构设计 → 笑点/情绪点埋设」四个环节。</p>
+            <p><strong>结果：</strong>经手商单脚本均播放百万级。合作品牌覆盖国内外多款主流网游，在商业信息有效传达与账号内容调性之间建立了可持续的平衡。</p>
+          </div>
+          <div>
+            <div class="case-metrics" style="margin-top:0;">
+              <div><span class="metric-value">100w+</span><div class="metric-label">均播放量</div></div>
+              <div><span class="metric-value">9个</span><div class="metric-label">游戏品牌</div></div>
+              <div><span class="metric-value">大纲→成片</span><div class="metric-label">全流程</div></div>
+            </div>
+            <div style="margin-top:16px;font-size:12px;color:var(--text-tertiary);margin-bottom:6px;">合作品牌一览</div>
+            <div class="brand-grid">
+              <span class="brand-chip">AOC</span>
+              <span class="brand-chip">FC足球世界</span>
+              <span class="brand-chip">NBA巅峰对决</span>
+              <span class="brand-chip">RO</span>
+              <span class="brand-chip">The Finals</span>
+              <span class="brand-chip">Arc Raiders</span>
+              <span class="brand-chip">三角洲</span>
+              <span class="brand-chip">尘白禁区</span>
+              <span class="brand-chip">逆战未来</span>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- 项目2：商单脚本 -->
-      <div class="project-card glow-amber">
-        <div class="project-header">
-          <div class="project-title">商单脚本 · 百万播放级</div>
-          <span class="project-badge badge-amber">百万播放</span>
+      <!-- CASE 3: 腾讯 CF 综艺 -->
+      <div class="case-card glow-blue">
+        <div class="case-header">
+          <div>
+            <div class="case-title">腾讯 CF 综艺 · 执行导演</div>
+            <div class="case-subtitle">参与腾讯大型综艺项目的现场执行</div>
+          </div>
+          <span class="case-badge badge-blue">腾讯外包</span>
         </div>
-        <p class="project-desc">负责公司主推大号的商单脚本创意策划与撰写。在品牌需求与内容调性之间找到平衡点，经手脚本均播放量百万级。</p>
-        <div class="project-metrics">
-          <div><span class="metric-value">100w+</span><div class="metric-label">均播放量</div></div>
-          <div><span class="metric-value">数篇</span><div class="metric-label">商单脚本</div></div>
-          <div><span class="metric-value">品牌</span><div class="metric-label">合作经验</div></div>
+        <div class="case-body">
+          <div class="case-desc">
+            <p><strong>策划思路：</strong>作为执行导演，核心任务是理解导演组的整体调度意图，并将其在自己负责的环节中准确落地——不是「发挥创意」而是「保障执行精度」。</p>
+            <p><strong>具体动作：</strong>负责所分配环节的现场调度，协调多工种协作，在紧凑的拍摄周期内保障环节按时、按质完成。</p>
+            <p><strong>结果：</strong>顺利完成拍摄任务。这段经历让我熟悉了大厂内容制作的流程标准与协作规范——对理解品牌方、平台方的工作逻辑有直接帮助。</p>
+          </div>
+          <div>
+            <div class="case-media">
+              <img src="tencent-credits.jpg" alt="腾讯CF综艺片尾名单">
+            </div>
+            <div style="text-align:center;margin-top:8px;font-size:12px;color:var(--text-tertiary);">▲ 片尾演职员名单</div>
+          </div>
         </div>
-        <div class="placeholder-media">
-          <span>▶️</span>
-          视频占位 —— 替换为商单视频嵌入或视频链接
-        </div>
-        <div class="project-role">
-          <strong>我的角色：</strong>理解品牌 brief 并转化为内容创意，独立完成创意策划与文案，在商业信息与内容调性之间找到平衡。团队审稿把关。
-        </div>
-      </div>
-
-      <!-- 项目3：腾讯综艺 -->
-      <div class="project-card glow-blue">
-        <div class="project-header">
-          <div class="project-title">腾讯 CF 综艺 · 执行导演</div>
-          <span class="project-badge badge-blue">腾讯外包</span>
-        </div>
-        <p class="project-desc">在腾讯 CF 综艺项目中担任执行导演，参与现场调度与环节统筹。在紧凑的拍摄周期内保障了所负责环节的落地执行。</p>
-        <div class="project-metrics">
+        <div class="case-metrics">
           <div><span class="metric-value">执行导演</span><div class="metric-label">角色</div></div>
           <div><span class="metric-value">腾讯</span><div class="metric-label">平台</div></div>
           <div><span class="metric-value">综艺</span><div class="metric-label">项目类型</div></div>
         </div>
-        <div class="placeholder-media">
-          <span>📸</span>
-          现场照片占位 —— 替换为执行导演工作照或片尾名单截图
-        </div>
-        <div class="project-role">
-          <strong>我的角色：</strong>理解并执行导演组调度意图，负责所分配环节的现场调度与落地，在高压拍摄中保障环节按时完成。腾讯制片与导演组搭建整体框架。
-        </div>
       </div>
 
+    </div>
+
+    <!-- 选题方法论 -->
+    <div class="reveal" style="margin-top:40px;">
+      <h3 style="margin-bottom:8px;">选题方法论</h3>
+      <p style="margin-bottom:20px;">我不做竞品分析表格。我的选题方式更接近<b>「内容雷达」</b>——保持对热点事件的敏感度，然后头脑风暴找角度。</p>
+    </div>
+    <div class="sop-flow reveal">
+      <div class="sop-step">
+        <div class="sop-step-num">01</div>
+        <div class="sop-step-title">热点扫描</div>
+        <div class="sop-step-desc">游戏更新 / 圈子节奏 / 跨圈热梗 / 玩家情绪变化</div>
+      </div>
+      <div class="sop-step">
+        <div class="sop-step-num">02</div>
+        <div class="sop-step-title">角度匹配</div>
+        <div class="sop-step-desc">这个热点跟我的账号有什么关系？观众为什么在我这看而不是别人那？</div>
+      </div>
+      <div class="sop-step">
+        <div class="sop-step-num">03</div>
+        <div class="sop-step-title">框架速写</div>
+        <div class="sop-step-desc">开头钩子 → 信息层 → 情绪层 → 结尾互动引导</div>
+      </div>
+      <div class="sop-step">
+        <div class="sop-step-num">04</div>
+        <div class="sop-step-title">数据验证</div>
+        <div class="sop-step-desc">发布后 24h 看 CTR / 完播率 / 互动率，决定是否追投或调整方向</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════ STRENGTHS / 个人优势 ═══════════ -->
-<section id="strengths">
+<!-- ═══════════ 03 内容审美 ═══════════ -->
+<section id="aesthetic">
   <div class="container">
-    <div class="section-label reveal">个人优势</div>
-    <h2 class="reveal">为什么是我</h2>
+    <div class="section-num reveal">03 · 内容审美</div>
+    <h2 class="reveal">不设计，但有判断</h2>
+    <p class="reveal" style="margin-bottom:36px;">我不做后期，不碰剪辑软件。但一条视频的封面能不能让人点、标题能不能让人停、内容节奏能不能让人看完——这些判断，来自运营经验，不是设计软件。</p>
 
-    <div class="strength-grid reveal-stagger">
-
-      <div class="strength-card">
-        <span class="strength-icon">🔗</span>
-        <div class="strength-title">全流程跑通能力</div>
-        <div class="strength-desc">从选题、脚本、配音到发布、数据复盘，能独立完成账号运营的每一个环节，不依赖团队分工。</div>
+    <div class="aesthetic-grid reveal-stagger">
+      <div class="aesthetic-card">
+        <span class="aesthetic-icon">🎯</span>
+        <div class="aesthetic-title">封面判断力</div>
+        <div class="aesthetic-desc">
+          封面是内容的<b>第一层钩子</b>。我判断封面的标准不是「好不好看」，而是——<strong>三秒内能不能让目标观众理解这期在讲什么？</strong>文字要大、信息要少、情绪要对。主页截图里的几期封面，每张都传递了一个明确的「这期聊什么」的信号。
+        </div>
       </div>
-
-      <div class="strength-card">
-        <span class="strength-icon">📊</span>
-        <div class="strength-title">数据驱动的内容判断</div>
-        <div class="strength-desc">不以「感觉」做内容。每一次迭代都基于播放量、完播率、互动数据的复盘，建立可复用的内容模型。</div>
+      <div class="aesthetic-card">
+        <span class="aesthetic-icon">📝</span>
+        <div class="aesthetic-title">标题逻辑</div>
+        <div class="aesthetic-desc">
+          好标题 = <strong>信息量 + 悬念 + 不骗人</strong>。信息量让算法知道该推给谁，悬念让人想点，不骗人是为了完播率和评论氛围。每一帧标题背后都是一次对「观众为什么要在百忙之中点开这个视频」的回答。
+        </div>
       </div>
-
-      <div class="strength-card">
-        <span class="strength-icon">🎯</span>
-        <div class="strength-title">商业与内容的平衡感</div>
-        <div class="strength-desc">理解品牌方的传播诉求，同时保护账号的内容调性。经手商单均播放百万级，说明观众不排斥、品牌有效触达。</div>
+      <div class="aesthetic-card">
+        <span class="aesthetic-icon">🎬</span>
+        <div class="aesthetic-title">内容节奏感</div>
+        <div class="aesthetic-desc">
+          脚本不是写到脚本结尾就完了。真正的节奏感来自<b>对观众注意力的预判</b>——哪里该抛梗、哪里该给干货、哪里该收、哪里该引导互动。这是写了几百条脚本之后才能形成的肌肉记忆。
+        </div>
       </div>
-
-      <div class="strength-card">
-        <span class="strength-icon">⚡</span>
-        <div class="strength-title">高压现场的执行力</div>
-        <div class="strength-desc">腾讯综艺的执行导演经历，锻炼了在多工种协作、紧凑拍摄周期下，按时保质交付环节的能力。</div>
-      </div>
-
     </div>
+
+    <div class="screenshot-showcase reveal">
+      <img src="homepage-screenshot.png" alt="白泽基拉B站主页封面展示">
+      <div class="screenshot-caption">▲ 白泽基拉 B站主页 · 封面即内容的第一印象——每张封面都在回答「这期聊什么」</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 04 方法论总结 ═══════════ -->
+<section id="methodology">
+  <div class="container">
+    <div class="section-num reveal">04 · 方法论总结</div>
+    <h2 class="reveal">我怎么做内容</h2>
+    <p class="reveal" style="margin-bottom:32px;">进入任何一个新赛道，我的策划逻辑如下。这套框架不限于游戏——放在任何需要「把内容变成传播」的场景里都适用。</p>
+
+    <div class="reveal-stagger">
+      <div class="method-step">
+        <div class="method-step-num">1</div>
+        <div class="method-step-content">
+          <h4>确定产品是什么</h4>
+          <p>一个视频账号是产品，一期内容是产品，一条商单也是产品。先定义清楚「我做的是什么」，才能讨论后面的所有问题。</p>
+        </div>
+      </div>
+      <div class="method-step">
+        <div class="method-step-num">2</div>
+        <div class="method-step-content">
+          <h4>结合产品确定用户画像</h4>
+          <p>谁会看？他们在什么场景下看？比如游戏杂谈的观众大多在吃饭/睡前刷 B 站——他们需要的是「陪伴感 + 信息增量」，不是深度论文。</p>
+        </div>
+      </div>
+      <div class="method-step">
+        <div class="method-step-num">3</div>
+        <div class="method-step-content">
+          <h4>找到场景痛点 & 需求</h4>
+          <p>用户在这个场景下有什么痛点？比如「想了解某款新游戏但没时间自己研究」→ 需求就是「有人帮我在 8 分钟内讲明白值不值得玩」。</p>
+        </div>
+      </div>
+      <div class="method-step">
+        <div class="method-step-num">4</div>
+        <div class="method-step-content">
+          <h4>给出解决方案</h4>
+          <p>基于前面的分析，选择合适的内容类型。不同需求对应不同的内容形态——</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="solution-types reveal">
+      <div class="solution-type">
+        <span class="solution-type-icon">📖</span>
+        <div class="solution-type-name">干货教程</div>
+      </div>
+      <div class="solution-type">
+        <span class="solution-type-icon">🎁</span>
+        <div class="solution-type-name">产品本身</div>
+      </div>
+      <div class="solution-type">
+        <span class="solution-type-icon">📖</span>
+        <div class="solution-type-name">案例 / 客户故事</div>
+      </div>
+      <div class="solution-type">
+        <span class="solution-type-icon">💬</span>
+        <div class="solution-type-name">情绪共鸣</div>
+      </div>
+    </div>
+
+    <p class="reveal" style="text-align:center;color:var(--text-tertiary);font-size:14px;">具体选哪种，取决于用户需求和平台分发逻辑——没有万能公式，但有可重复的判断框架。</p>
   </div>
 </section>
 
 <!-- ═══════════ CONTACT ═══════════ -->
 <section id="contact">
   <div class="container">
-    <div class="section-label reveal">联系方式</div>
+    <div class="section-num reveal">联系方式</div>
     <h2 class="reveal">聊聊</h2>
-    <p class="reveal" style="margin-bottom:44px;">如果你正在找一位能独立跑通账号全流程的内容运营，或者只是想交流一下行业想法——欢迎联系。</p>
+    <p class="reveal" style="margin-bottom:44px;">如果你正在找一位能独立跑通视频账号全流程的新媒体运营——欢迎联系。</p>
 
     <div class="contact-grid reveal-stagger">
       <div class="contact-item">
         <div class="contact-label">邮箱</div>
-        <div class="contact-value"><span class="contact-placeholder">[ 你的邮箱 ]</span></div>
+        <div class="contact-value">2300512917@qq.com</div>
       </div>
       <div class="contact-item">
         <div class="contact-label">微信</div>
-        <div class="contact-value"><span class="contact-placeholder">[ 你的微信 ]</span></div>
+        <div class="contact-value">15295746091</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">B站账号</div>
+        <div class="contact-value"><a href="https://space.bilibili.com/442595489" target="_blank">白泽基拉 →</a></div>
       </div>
     </div>
   </div>
@@ -807,67 +607,36 @@
 
 <footer>
   <div class="container">
-    © 2026 张睿
+    © 2026 张睿 &nbsp;·&nbsp; <a href="https://github.com/t2w9ybbtcn-svg/portfolio" target="_blank">GitHub</a>
   </div>
 </footer>
 
-<!-- ═══════════ SCRIPTS ═══════════ -->
 <script>
-  // ── Navbar scroll effect ──
   const navbar = document.getElementById('navbar');
-
   function updateNav() {
-    if (window.scrollY > 40) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-
-    // Update active nav link
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-links a');
     let current = '';
-    sections.forEach(section => {
-      const top = section.offsetTop - 100;
-      if (window.scrollY >= top) {
-        current = section.getAttribute('id');
-      }
-    });
-    navLinks.forEach(link => {
-      link.classList.toggle('active', link.getAttribute('data-section') === current);
-    });
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.getAttribute('id'); });
+    navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('data-section') === current));
   }
-
   window.addEventListener('scroll', updateNav, { passive: true });
 
-  // ── Scroll reveal animations ──
   const revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
-
   function revealOnScroll() {
-    const windowHeight = window.innerHeight;
-    revealEls.forEach(el => {
-      const rect = el.getBoundingClientRect();
-      const revealPoint = 120;
-      if (rect.top < windowHeight - revealPoint) {
-        el.classList.add('visible');
-      }
-    });
+    const wh = window.innerHeight;
+    revealEls.forEach(el => { if (el.getBoundingClientRect().top < wh - 100) el.classList.add('visible'); });
   }
-
   window.addEventListener('scroll', revealOnScroll, { passive: true });
   window.addEventListener('load', revealOnScroll);
-
-  // Trigger once on load for elements already in view
   revealOnScroll();
 
-  // ── Smooth scroll for nav links (fallback) ──
   document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', function(e) {
       e.preventDefault();
       const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
 </script>
