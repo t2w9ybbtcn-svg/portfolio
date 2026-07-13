@@ -5,30 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>张睿 — 新媒体运营 / 内容编导</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap');
+  /* ═══════════ INDEX STUDIO INSPIRED ═══════════
+     Design language: editorial monochrome,
+     serif headlines × sans-serif body,
+     generous whitespace, thin-line grid,
+     content-first, no decoration for its own sake.
+     No external font dependencies.
+  ============================================= */
 
   :root {
-    --bg: #08080b;
-    --surface: #0f0f13;
-    --surface-2: #16161d;
-    --border: #1e1e26;
-    --border-hover: #2a2a35;
+    --bg: #0a0a0c;
+    --surface: #111114;
+    --surface-2: #18181d;
+    --border: #1f1f26;
+    --border-light: rgba(255,255,255,0.06);
     --text: #e8e8ed;
-    --text-secondary: #a1a1aa;
-    --text-tertiary: #6b6b76;
-    --accent: #fafafa;
-    --green: #4ade80;
-    --green-bg: rgba(74,222,128,0.07);
-    --amber: #fbbf24;
-    --amber-bg: rgba(251,191,36,0.07);
-    --blue: #60a5fa;
-    --blue-bg: rgba(96,165,250,0.07);
-    --purple: #c084fc;
-    --purple-bg: rgba(192,132,252,0.07);
-    --radius: 14px;
-    --radius-sm: 8px;
-    --max-width: 920px;
+    --text-secondary: #9d9da8;
+    --text-tertiary: #646470;
+    --accent: #ffffff;
+    --radius: 4px;
+    --max-width: 960px;
     --nav-height: 56px;
+    --font-serif: 'Georgia', 'Times New Roman', 'Noto Serif SC', 'SimSun', serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Hiragino Sans GB', sans-serif;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -37,230 +36,242 @@
   body {
     background: var(--bg);
     color: var(--text);
-    font-family: 'Noto Sans SC', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: var(--font-sans);
     font-weight: 400;
-    line-height: 1.7;
+    line-height: 1.75;
     -webkit-font-smoothing: antialiased;
+    font-size: 15px;
   }
 
-  /* ── NAV ── */
+  /* ── NAV: ultra-minimal ── */
   .nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 1000;
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
     height: var(--nav-height);
-    background: rgba(8,8,11,0.72);
-    backdrop-filter: blur(18px) saturate(140%);
-    -webkit-backdrop-filter: blur(18px) saturate(140%);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    transition: background 0.3s, border-color 0.3s;
+    background: rgba(10,10,12,0.78);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.35s;
   }
-  .nav.scrolled { background: rgba(8,8,11,0.88); border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .nav.scrolled { border-bottom-color: var(--border-light); }
   .nav-inner {
     max-width: var(--max-width); margin: 0 auto; padding: 0 24px;
     height: 100%; display: flex; align-items: center; justify-content: space-between;
   }
-  .nav-logo { font-family: 'Inter',sans-serif; font-size: 15px; font-weight: 700; letter-spacing: -0.01em; color: var(--accent); text-decoration: none; }
-  .nav-links { display: flex; gap: 26px; list-style: none; }
-  .nav-links a { color: var(--text-tertiary); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.02em; transition: color 0.25s; border: none; }
+  .nav-logo { font-family: var(--font-serif); font-size: 18px; font-style: italic; color: var(--text); text-decoration: none; letter-spacing: 0.01em; }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { color: var(--text-tertiary); text-decoration: none; font-size: 12px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.3s; border: none; }
   .nav-links a:hover, .nav-links a.active { color: var(--text); }
 
   /* ── TYPOGRAPHY ── */
   .section-num {
-    font-family: 'Inter',sans-serif; font-size: 13px; font-weight: 700;
-    letter-spacing: 0.06em; color: var(--text-tertiary); margin-bottom: 8px;
-    display: flex; align-items: center; gap: 10px;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--text-tertiary); margin-bottom: 12px;
+    display: flex; align-items: center; gap: 14px;
   }
   .section-num::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
-  h2 { font-size: 30px; font-weight: 700; letter-spacing: -0.025em; line-height: 1.25; margin-bottom: 20px; color: var(--accent); }
-  h3 { font-size: 19px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 10px; }
-  p, li { color: var(--text-secondary); font-size: 15px; line-height: 1.8; }
-  a { color: var(--text); text-decoration: none; border-bottom: 1px solid var(--border-hover); transition: border-color 0.2s, color 0.2s; }
-  a:hover { border-color: var(--accent); }
+  h1 { font-family: var(--font-serif); }
+  h2 { font-family: var(--font-serif); font-size: 40px; font-weight: 400; letter-spacing: -0.015em; line-height: 1.18; margin-bottom: 24px; color: var(--accent); font-style: italic; }
+  h3 { font-size: 18px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 12px; }
+  p { color: var(--text-secondary); font-size: 15px; line-height: 1.85; }
+
+  a { color: var(--text); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.15); transition: border-color 0.25s; }
+  a:hover { border-color: rgba(255,255,255,0.5); }
+
+  strong { color: var(--text); font-weight: 600; }
 
   /* ── LAYOUT ── */
   .container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
-  section { padding: 120px 0; border-bottom: 1px solid var(--border); }
+  section { padding: 140px 0; border-bottom: 1px solid var(--border); }
   section:last-of-type { border-bottom: none; }
 
-  /* ═══════════ 01 HERO ═══════════ */
+  /* ═══════════ HERO ═══════════ */
   .hero {
     min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
-    padding: calc(var(--nav-height) + 80px) 0 100px;
-    border-bottom: 1px solid var(--border); position: relative; overflow: hidden;
+    padding: calc(var(--nav-height) + 100px) 0 120px;
+    border-bottom: 1px solid var(--border);
   }
-  .hero::before {
-    content: ''; position: absolute; inset: 0;
-    background: radial-gradient(ellipse 55% 45% at 50% 35%, rgba(120,120,150,0.05) 0%, transparent 100%);
-    pointer-events: none;
-  }
-  .hero-inner { display: flex; align-items: center; gap: 52px; position: relative; z-index: 1; }
+  .hero-inner { display: flex; align-items: center; gap: 60px; }
   .hero-photo {
-    flex-shrink: 0; width: 150px; height: 150px; border-radius: 50%;
-    overflow: hidden; border: 2px solid var(--border); background: var(--surface-2);
-    transition: border-color 0.4s, box-shadow 0.4s;
+    flex-shrink: 0; width: 160px; height: 160px; border-radius: 50%;
+    overflow: hidden; border: 1px solid var(--border);
+    transition: border-color 0.5s;
   }
-  .hero-photo:hover { border-color: var(--border-hover); box-shadow: 0 0 40px rgba(200,200,220,0.05); }
+  .hero-photo:hover { border-color: rgba(255,255,255,0.2); }
   .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+
   .hero-text { flex: 1; }
-  .hero-name { font-size: clamp(42px,7vw,68px); font-weight: 800; letter-spacing: -0.035em; line-height: 1.05; color: var(--accent); margin-bottom: 16px; }
-  .hero-tagline { font-size: 18px; color: var(--text-secondary); font-weight: 400; margin-bottom: 32px; max-width: 520px; line-height: 1.65; }
-  .hero-cta {
-    display: inline-flex; align-items: center; gap: 8px; padding: 12px 26px;
-    font-size: 14px; font-weight: 600; letter-spacing: 0.02em;
-    border: 1px solid var(--border-hover); border-radius: 100px; color: var(--text);
-    text-decoration: none; transition: all 0.3s; cursor: pointer; position: relative; z-index: 1;
+  .hero-name {
+    font-family: var(--font-serif); font-size: clamp(48px,8vw,80px);
+    font-weight: 400; font-style: italic; letter-spacing: -0.03em;
+    line-height: 1.05; color: var(--accent); margin-bottom: 20px;
   }
-  .hero-cta:hover { background: var(--surface-2); border-color: var(--accent); box-shadow: 0 0 28px rgba(200,200,220,0.05); }
-  .hero-cta svg { transition: transform 0.3s; }
-  .hero-cta:hover svg { transform: translateY(2px); }
+  .hero-tagline { font-size: 17px; color: var(--text-secondary); font-weight: 400; margin-bottom: 40px; max-width: 520px; line-height: 1.7; }
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: 10px; padding: 14px 32px;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.2); color: var(--text);
+    text-decoration: none; transition: all 0.35s;
+  }
+  .hero-cta:hover { background: var(--text); color: var(--bg); }
+  .hero-cta svg { transition: transform 0.35s; }
+  .hero-cta:hover svg { transform: translateY(2px); stroke: var(--bg); }
 
-  /* stats row */
-  .hero-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; position: relative; z-index: 1; }
-  .hero-stat { background: var(--surface); padding: 30px 28px; text-align: center; transition: background 0.3s; }
-  .hero-stat:hover { background: var(--surface-2); }
-  .hero-stat-value { font-family: 'Inter',sans-serif; font-size: 34px; font-weight: 700; letter-spacing: -0.02em; color: var(--accent); display: block; margin-bottom: 6px; }
-  .hero-stat-label { font-size: 13px; color: var(--text-tertiary); font-weight: 500; letter-spacing: 0.03em; }
-  .hero-stat:nth-child(1) .hero-stat-value { color: var(--green); }
-  .hero-stat:nth-child(2) .hero-stat-value { color: var(--amber); }
-  .hero-stat:nth-child(3) .hero-stat-value { color: var(--purple); }
+  /* stats */
+  .hero-stats { display: grid; grid-template-columns: repeat(3,1fr); margin-top: 64px; gap: 0; }
+  .hero-stat { padding: 36px 0; border-top: 1px solid var(--border); transition: border-color 0.3s; }
+  .hero-stat:hover { border-top-color: rgba(255,255,255,0.15); }
+  .hero-stat-value { font-family: var(--font-serif); font-size: 42px; font-weight: 400; font-style: italic; letter-spacing: -0.02em; color: var(--accent); display: block; margin-bottom: 6px; }
+  .hero-stat-label { font-size: 12px; color: var(--text-tertiary); font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; }
 
-  /* ── SKILL TAGS ── */
-  .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; position: relative; z-index: 1; }
-  .skill-tag { font-size: 12px; font-weight: 500; letter-spacing: 0.03em; padding: 6px 14px; border-radius: 100px; background: var(--surface-2); border: 1px solid var(--border); color: var(--text-secondary); transition: all 0.25s; }
-  .skill-tag:hover { border-color: var(--border-hover); color: var(--text); }
+  /* skill tags */
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 32px; }
+  .skill-tag { font-size: 11px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; padding: 7px 16px; border: 1px solid var(--border); color: var(--text-tertiary); transition: all 0.3s; }
+  .skill-tag:hover { border-color: rgba(255,255,255,0.25); color: var(--text); }
 
-  /* ── META LIST ── */
-  .meta-list { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius-sm); overflow: hidden; }
-  .meta-row { display: flex; justify-content: space-between; padding: 13px 18px; background: var(--surface); transition: background 0.25s; }
-  .meta-row:hover { background: var(--surface-2); }
-  .meta-label { color: var(--text-tertiary); font-size: 13px; font-weight: 500; }
+  /* ═══════════ 01 OVERVIEW ═══════════ */
+  .overview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
+  .meta-list { display: flex; flex-direction: column; }
+  .meta-row { display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid var(--border); transition: border-color 0.25s; }
+  .meta-row:hover { border-bottom-color: rgba(255,255,255,0.12); }
+  .meta-label { color: var(--text-tertiary); font-size: 12px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
   .meta-value { color: var(--text); font-size: 14px; font-weight: 500; }
 
   /* ═══════════ 02 CASE CARDS ═══════════ */
-  .case-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
-
+  .case-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); }
   .case-card {
-    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-    padding: 44px; transition: all 0.4s cubic-bezier(0.25,0.1,0.25,1); position: relative; overflow: hidden;
+    background: var(--bg); padding: 52px; transition: background 0.4s;
+    position: relative;
   }
-  .case-card:hover { border-color: var(--border-hover); background: var(--surface-2); transform: translateY(-2px); }
-  .case-card::before { content: ''; position: absolute; top: 0; left: 44px; right: 44px; height: 1px; background: var(--border); transition: background 0.4s; }
-  .case-card.glow-green:hover { box-shadow: 0 0 24px rgba(74,222,128,0.12); }
-  .case-card.glow-green:hover::before { background: rgba(74,222,128,0.35); }
-  .case-card.glow-amber:hover { box-shadow: 0 0 24px rgba(251,191,36,0.12); }
-  .case-card.glow-amber:hover::before { background: rgba(251,191,36,0.35); }
-  .case-card.glow-blue:hover { box-shadow: 0 0 24px rgba(96,165,250,0.12); }
-  .case-card.glow-blue:hover::before { background: rgba(96,165,250,0.35); }
+  .case-card:hover { background: var(--surface); }
 
-  .case-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; flex-wrap: wrap; gap: 12px; }
-  .case-title { font-size: 21px; font-weight: 600; letter-spacing: -0.01em; }
-  .case-subtitle { font-size: 14px; color: var(--text-tertiary); font-weight: 500; margin-bottom: 18px; }
-  .case-badge { font-family: 'Inter',sans-serif; font-size: 11px; font-weight: 600; padding: 5px 12px; border-radius: 100px; letter-spacing: 0.04em; }
-  .badge-green { background: var(--green-bg); color: var(--green); }
-  .badge-amber { background: var(--amber-bg); color: var(--amber); }
-  .badge-blue  { background: var(--blue-bg);  color: var(--blue); }
+  .case-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; flex-wrap: wrap; gap: 14px; }
+  .case-title { font-family: var(--font-serif); font-size: 24px; font-weight: 400; font-style: italic; letter-spacing: -0.01em; }
+  .case-subtitle { font-size: 13px; color: var(--text-tertiary); font-weight: 500; margin-bottom: 20px; letter-spacing: 0.03em; }
+  .case-badge { font-size: 10px; font-weight: 600; padding: 5px 12px; letter-spacing: 0.08em; text-transform: uppercase; border: 1px solid var(--border); color: var(--text-tertiary); transition: all 0.3s; }
+  .case-card:hover .case-badge { border-color: rgba(255,255,255,0.2); color: var(--text-secondary); }
 
-  .case-body { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; margin-top: 20px; }
-  .case-desc p { margin-bottom: 14px; }
+  .case-body { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+  .case-desc p { margin-bottom: 16px; }
   .case-desc p:last-child { margin-bottom: 0; }
-  .case-desc strong { color: var(--text); }
 
-  .case-media {
-    background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-sm);
-    overflow: hidden; transition: border-color 0.3s; cursor: pointer;
-  }
-  .case-media:hover { border-color: var(--border-hover); }
+  .case-media { overflow: hidden; border: 1px solid var(--border); transition: border-color 0.35s; }
+  .case-media:hover { border-color: rgba(255,255,255,0.15); }
   .case-media img { width: 100%; height: auto; display: block; }
+  .case-media-caption { margin-top: 10px; font-size: 11px; color: var(--text-tertiary); letter-spacing: 0.04em; text-align: center; }
 
-  .case-metrics { display: flex; gap: 32px; margin: 18px 0; flex-wrap: wrap; }
-  .metric-value { font-family: 'Inter',sans-serif; font-size: 24px; font-weight: 700; letter-spacing: -0.02em; color: var(--accent); }
-  .metric-label { font-size: 12px; color: var(--text-tertiary); font-weight: 500; letter-spacing: 0.03em; margin-top: 3px; }
+  .case-metrics { display: flex; gap: 40px; margin: 24px 0; flex-wrap: wrap; }
+  .metric-value { font-family: var(--font-serif); font-size: 28px; font-weight: 400; font-style: italic; letter-spacing: -0.02em; color: var(--accent); }
+  .metric-label { font-size: 11px; color: var(--text-tertiary); font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 4px; }
 
-  .brand-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0; }
-  .brand-chip { font-size: 12px; font-weight: 500; letter-spacing: 0.02em; padding: 5px 12px; border-radius: 100px; background: var(--amber-bg); border: 1px solid rgba(251,191,36,0.15); color: var(--amber); }
+  .brand-grid { display: flex; flex-wrap: wrap; gap: 6px; margin: 18px 0; }
+  .brand-chip { font-size: 11px; font-weight: 500; letter-spacing: 0.05em; padding: 6px 14px; border: 1px solid var(--border); color: var(--text-tertiary); transition: all 0.3s; }
+  .brand-chip:hover { border-color: rgba(255,255,255,0.2); color: var(--text-secondary); }
 
-  /* ── SOP FLOW ── */
-  .sop-flow { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin: 24px 0; }
-  .sop-step { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 24px 20px; text-align: center; transition: all 0.3s; }
-  .sop-step:hover { border-color: var(--border-hover); background: var(--surface-2); transform: translateY(-2px); }
-  .sop-step-num { font-family: 'Inter',sans-serif; font-size: 28px; font-weight: 800; letter-spacing: -0.02em; color: var(--border-hover); margin-bottom: 8px; }
-  .sop-step-title { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
-  .sop-step-desc { font-size: 12px; color: var(--text-tertiary); line-height: 1.55; }
+  /* commercial showcase */
+  .showcase-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+  .showcase-item { background: var(--bg); overflow: hidden; transition: background 0.35s; }
+  .showcase-item:hover { background: var(--surface); }
+  .showcase-item img { width: 100%; height: auto; display: block; }
+  .showcase-item-caption { padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: var(--text-tertiary); letter-spacing: 0.04em; border-top: 1px solid var(--border); }
+  .showcase-item-caption a { font-size: 11px; border: none; color: var(--text-tertiary); transition: color 0.3s; }
+  .showcase-item-caption a:hover { color: var(--text); }
+
+  /* script excerpt */
+  .script-excerpt {
+    margin-top: 24px; padding: 28px 32px;
+    border: 1px solid var(--border); transition: border-color 0.35s;
+  }
+  .script-excerpt:hover { border-color: rgba(255,255,255,0.1); }
+  .script-excerpt-label { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 18px; }
+  .script-excerpt p { font-family: var(--font-serif); font-size: 15px; line-height: 2; }
+
+  /* ═══════════ SOP FLOW ═══════════ */
+  .sop-grid { display: grid; grid-template-columns: repeat(4,1fr); border: 1px solid var(--border); margin: 28px 0; }
+  .sop-step { padding: 32px 24px; text-align: center; border-right: 1px solid var(--border); transition: background 0.3s; }
+  .sop-step:last-child { border-right: none; }
+  .sop-step:hover { background: var(--surface); }
+  .sop-step-num { font-family: var(--font-serif); font-size: 36px; font-style: italic; color: var(--border); margin-bottom: 10px; }
+  .sop-step-title { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 6px; letter-spacing: 0.03em; }
+  .sop-step-desc { font-size: 11px; color: var(--text-tertiary); line-height: 1.6; }
 
   /* ═══════════ 03 AESTHETIC ═══════════ */
-  .aesthetic-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
-  .aesthetic-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 34px 28px; transition: all 0.35s; }
-  .aesthetic-card:hover { border-color: var(--border-hover); background: var(--surface-2); transform: translateY(-2px); box-shadow: 0 0 28px rgba(200,200,220,0.03); }
-  .aesthetic-icon { font-size: 30px; margin-bottom: 14px; display: block; }
-  .aesthetic-title { font-size: 16px; font-weight: 600; margin-bottom: 10px; color: var(--text); }
-  .aesthetic-desc { font-size: 13px; color: var(--text-tertiary); line-height: 1.7; }
-  .aesthetic-desc strong { color: var(--text-secondary); }
+  .aesthetic-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+  .aesthetic-card { background: var(--bg); padding: 40px 32px; transition: background 0.35s; }
+  .aesthetic-card:hover { background: var(--surface); }
+  .aesthetic-card-num { font-family: var(--font-serif); font-size: 48px; font-style: italic; color: var(--border); line-height: 1; margin-bottom: 14px; display: block; }
+  .aesthetic-title { font-size: 15px; font-weight: 600; margin-bottom: 12px; color: var(--text); letter-spacing: 0.02em; }
+  .aesthetic-desc { font-size: 13px; color: var(--text-tertiary); line-height: 1.8; }
+  .aesthetic-desc strong { color: var(--text-secondary); font-weight: 600; }
 
-  /* ── screenshot showcase ── */
-  .screenshot-showcase {
-    margin-top: 32px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: border-color 0.3s;
-  }
-  .screenshot-showcase:hover { border-color: var(--border-hover); }
-  .screenshot-showcase img { width: 100%; height: auto; display: block; }
-  .screenshot-caption { padding: 14px 20px; font-size: 12px; color: var(--text-tertiary); letter-spacing: 0.03em; border-top: 1px solid var(--border); }
+  .screenshot-full { margin-top: 36px; border: 1px solid var(--border); overflow: hidden; transition: border-color 0.35s; }
+  .screenshot-full:hover { border-color: rgba(255,255,255,0.1); }
+  .screenshot-full img { width: 100%; height: auto; display: block; }
+  .screenshot-full-caption { padding: 14px 20px; font-size: 11px; color: var(--text-tertiary); letter-spacing: 0.05em; border-top: 1px solid var(--border); }
 
   /* ═══════════ 04 METHODOLOGY ═══════════ */
-  .method-flow { display: flex; flex-direction: column; gap: 16px; margin: 24px 0; }
-  .method-step { display: flex; gap: 20px; align-items: flex-start; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 24px 28px; transition: all 0.3s; }
-  .method-step:hover { border-color: var(--border-hover); background: var(--surface-2); }
-  .method-step-num { flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%; background: var(--surface-2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-family: 'Inter',sans-serif; font-size: 15px; font-weight: 700; color: var(--text-secondary); }
-  .method-step-content h4 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
-  .method-step-content p { font-size: 13px; color: var(--text-tertiary); line-height: 1.65; }
+  .method-list { display: flex; flex-direction: column; }
+  .method-step-item { display: flex; gap: 24px; padding: 28px 0; border-bottom: 1px solid var(--border); transition: all 0.3s; }
+  .method-step-item:hover { padding-left: 8px; }
+  .method-step-num { flex-shrink: 0; font-family: var(--font-serif); font-size: 28px; font-style: italic; color: var(--border); width: 32px; }
+  .method-step-content h4 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 6px; letter-spacing: 0.02em; }
+  .method-step-content p { font-size: 13px; color: var(--text-tertiary); line-height: 1.7; }
 
-  .solution-types { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; margin: 28px 0; }
-  .solution-type { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 22px 16px; text-align: center; transition: all 0.3s; }
-  .solution-type:hover { border-color: var(--purple); background: var(--surface-2); }
-  .solution-type-icon { font-size: 22px; margin-bottom: 8px; display: block; }
-  .solution-type-name { font-size: 13px; font-weight: 600; color: var(--text); }
+  .solution-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin: 32px 0; }
+  .solution-type { background: var(--bg); padding: 28px 16px; text-align: center; transition: all 0.3s; }
+  .solution-type:hover { background: var(--surface); }
+  .solution-type-name { font-size: 13px; font-weight: 600; color: var(--text); letter-spacing: 0.03em; }
 
   /* ═══════════ CONTACT ═══════════ */
-  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-  .contact-item { margin-bottom: 28px; }
-  .contact-label { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; color: var(--text-tertiary); margin-bottom: 8px; }
-  .contact-value { font-size: 17px; font-weight: 500; color: var(--text); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); }
+  .contact-item { background: var(--bg); padding: 32px; transition: background 0.3s; }
+  .contact-item:hover { background: var(--surface); }
+  .contact-label { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 10px; }
+  .contact-value { font-size: 16px; font-weight: 500; color: var(--text); font-family: var(--font-serif); font-style: italic; }
 
   /* ── FOOTER ── */
-  footer { padding: 48px 0; text-align: center; color: var(--text-tertiary); font-size: 13px; border-top: 1px solid var(--border); }
+  footer { padding: 56px 0; text-align: center; color: var(--text-tertiary); font-size: 12px; letter-spacing: 0.04em; border-top: 1px solid var(--border); }
+  footer a { border: none; }
 
   /* ═══════════ ANIMATIONS ═══════════ */
-  .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s cubic-bezier(0.25,0.1,0.25,1), transform 0.7s cubic-bezier(0.25,0.1,0.25,1); }
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s cubic-bezier(0.22,0.12,0,1), transform 0.8s cubic-bezier(0.22,0.12,0,1); }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  .reveal-stagger > * { opacity: 0; transform: translateY(24px); transition: opacity 0.6s cubic-bezier(0.25,0.1,0.25,1), transform 0.6s cubic-bezier(0.25,0.1,0.25,1); }
+  .reveal-stagger > * { opacity: 0; transform: translateY(16px); transition: opacity 0.7s cubic-bezier(0.22,0.12,0,1), transform 0.7s cubic-bezier(0.22,0.12,0,1); }
   .reveal-stagger.visible > *:nth-child(1) { transition-delay: 0s;    opacity: 1; transform: translateY(0); }
-  .reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.1s;  opacity: 1; transform: translateY(0); }
-  .reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.2s;  opacity: 1; transform: translateY(0); }
-  .reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.3s;  opacity: 1; transform: translateY(0); }
-  .reveal-stagger.visible > *:nth-child(5) { transition-delay: 0.35s; opacity: 1; transform: translateY(0); }
-  .reveal-stagger.visible > *:nth-child(6) { transition-delay: 0.4s;  opacity: 1; transform: translateY(0); }
+  .reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.12s; opacity: 1; transform: translateY(0); }
+  .reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.24s; opacity: 1; transform: translateY(0); }
+  .reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.36s; opacity: 1; transform: translateY(0); }
+  .reveal-stagger.visible > *:nth-child(5) { transition-delay: 0.44s; opacity: 1; transform: translateY(0); }
+  .reveal-stagger.visible > *:nth-child(6) { transition-delay: 0.5s;  opacity: 1; transform: translateY(0); }
 
   /* ═══════════ RESPONSIVE ═══════════ */
   @media (max-width: 700px) {
-    .nav-links { gap: 14px; }
-    .nav-links a { font-size: 11px; }
+    .nav-links { gap: 16px; }
+    .nav-links a { font-size: 10px; letter-spacing: 0.04em; }
+    h2 { font-size: 30px; }
     .hero-stats { grid-template-columns: 1fr; }
-    .hero-stat { padding: 20px 16px; }
-    .hero-stat-value { font-size: 28px; }
-    .hero-inner { flex-direction: column; gap: 28px; text-align: center; }
-    .hero-photo { width: 120px; height: 120px; }
+    .hero-stat { padding: 24px 0; }
+    .hero-stat-value { font-size: 32px; }
+    .hero-inner { flex-direction: column; gap: 32px; text-align: center; }
+    .hero-photo { width: 130px; height: 130px; }
     .hero-tagline { max-width: 100%; }
-    .case-body { grid-template-columns: 1fr; gap: 24px; }
+    .overview-grid { grid-template-columns: 1fr; gap: 36px; }
+    .case-body { grid-template-columns: 1fr; gap: 28px; }
     .case-card { padding: 28px; }
-    .case-card::before { left: 28px; right: 28px; }
-    .sop-flow { grid-template-columns: repeat(2,1fr); }
+    .case-title { font-size: 20px; }
+    .case-metrics { gap: 24px; }
+    .metric-value { font-size: 22px; }
+    .sop-grid { grid-template-columns: repeat(2,1fr); }
+    .sop-step { border-right: none; border-bottom: 1px solid var(--border); }
     .aesthetic-grid { grid-template-columns: 1fr; }
-    .solution-types { grid-template-columns: repeat(2,1fr); }
-    .contact-grid { grid-template-columns: 1fr; gap: 20px; }
-    .method-step { flex-direction: column; gap: 12px; }
-    section { padding: 80px 0; }
-    .hero { min-height: auto; padding: calc(var(--nav-height) + 40px) 0 64px; }
+    .solution-grid { grid-template-columns: repeat(2,1fr); }
+    .showcase-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .method-step-item { gap: 16px; }
+    section { padding: 88px 0; }
+    .hero { min-height: auto; padding: calc(var(--nav-height) + 48px) 0 72px; }
   }
 </style>
 </head>
@@ -269,18 +280,18 @@
 <!-- ═══════════ NAV ═══════════ -->
 <nav class="nav" id="navbar">
   <div class="nav-inner">
-    <a href="#hero" class="nav-logo">ZR</a>
+    <a href="#hero" class="nav-logo">Zhang Rui</a>
     <ul class="nav-links">
-      <li><a href="#overview" data-section="overview">01 简介</a></li>
-      <li><a href="#cases" data-section="cases">02 运营成果</a></li>
-      <li><a href="#aesthetic" data-section="aesthetic">03 内容审美</a></li>
-      <li><a href="#methodology" data-section="methodology">04 方法论</a></li>
-      <li><a href="#contact" data-section="contact">联系</a></li>
+      <li><a href="#overview" data-section="overview">About</a></li>
+      <li><a href="#cases" data-section="cases">Work</a></li>
+      <li><a href="#aesthetic" data-section="aesthetic">Craft</a></li>
+      <li><a href="#methodology" data-section="methodology">Method</a></li>
+      <li><a href="#contact" data-section="contact">Contact</a></li>
     </ul>
   </div>
 </nav>
 
-<!-- ═══════════ 01 个人简介 ═══════════ -->
+<!-- ═══════════ HERO ═══════════ -->
 <section class="hero" id="hero">
   <div class="container">
     <div class="hero-inner">
@@ -289,24 +300,24 @@
       </div>
       <div class="hero-text reveal">
         <h1 class="hero-name">张睿</h1>
-        <p class="hero-tagline">新媒体运营 / 内容编导。能独立跑通视频账号全流程——从选题脚本、配音统筹，到内容运营与数据复盘。不涉及后期制作。</p>
+        <p class="hero-tagline">新媒体运营 / 内容编导。独立操盘视频账号全流程——选题、脚本、配音、发布、数据复盘。不涉及后期制作。</p>
         <a href="#contact" class="hero-cta">
           联系我
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
         </a>
       </div>
     </div>
     <div class="hero-stats reveal">
       <div class="hero-stat">
-        <span class="hero-stat-value">18.5<span style="font-size:19px;font-weight:500;">w</span></span>
-        <span class="hero-stat-label">独立运营账号粉丝</span>
+        <span class="hero-stat-value">18.5w</span>
+        <span class="hero-stat-label">运营账号粉丝</span>
       </div>
       <div class="hero-stat">
-        <span class="hero-stat-value">100<span style="font-size:19px;font-weight:500;">w+</span></span>
+        <span class="hero-stat-value">100w+</span>
         <span class="hero-stat-label">商单均播放量</span>
       </div>
       <div class="hero-stat">
-        <span class="hero-stat-value">9<span style="font-size:19px;font-weight:500;">个</span></span>
+        <span class="hero-stat-value">9个</span>
         <span class="hero-stat-label">合作游戏品牌</span>
       </div>
     </div>
@@ -323,22 +334,23 @@
   </div>
 </section>
 
+<!-- ═══════════ 01 个人简介 ═══════════ -->
 <section id="overview">
   <div class="container">
-    <div class="section-num reveal">01 · 个人简介</div>
+    <div class="section-num reveal">01&ensp;·&ensp;个人简介</div>
     <h2 class="reveal">关于我</h2>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:44px;" class="reveal">
+    <div class="overview-grid reveal">
       <div>
         <p>南京林业大学汉语言文学专业毕业。大四进入 MCN 行业，独立操盘 B 站游戏杂谈类视频账号<b>「白泽基拉」</b>的日常运营，负责从选题、脚本、配音到发布排期与数据复盘的全流程。</p>
-        <p style="margin-top:14px;">同时为公司主推账号<b>「国电武术馆馆长」</b>撰写商单脚本，经手 9 个游戏品牌的定制内容，均播放百万级。</p>
-        <p style="margin-top:14px;">我的核心能力不是「做过什么岗位」，而是<b>「拿到一个选题，能从脚本写到发布」</b>——并且知道怎么让内容被算法看到、被观众喜欢、被品牌认可。</p>
+        <p style="margin-top:18px;">同时为公司主推账号<b>「国电武术馆馆长」</b>撰写商单脚本，经手 9 个游戏品牌的定制内容，均播放百万级。</p>
+        <p style="margin-top:18px;">我的核心能力不是「做过什么岗位」，而是<b>「拿到一个选题，能从脚本写到发布」</b>——并且知道怎么让内容被算法看到、被观众喜欢、被品牌认可。</p>
       </div>
       <div class="meta-list">
-        <div class="meta-row"><span class="meta-label">运营账号</span><span class="meta-value">白泽基拉（B站）</span></div>
+        <div class="meta-row"><span class="meta-label">运营账号</span><span class="meta-value">白泽基拉 (B站)</span></div>
         <div class="meta-row"><span class="meta-label">商单服务</span><span class="meta-value">国电武术馆馆长</span></div>
         <div class="meta-row"><span class="meta-label">专业背景</span><span class="meta-value">汉语言文学</span></div>
         <div class="meta-row"><span class="meta-label">所在地</span><span class="meta-value">南京</span></div>
-        <div class="meta-row"><span class="meta-label">求职方向</span><span class="meta-value">新媒体运营 / MCN编导 / 品牌新媒体</span></div>
+        <div class="meta-row"><span class="meta-label">求职方向</span><span class="meta-value">新媒体运营 / MCN编导</span></div>
       </div>
     </div>
   </div>
@@ -347,33 +359,35 @@
 <!-- ═══════════ 02 平台运营及成果 ═══════════ -->
 <section id="cases">
   <div class="container">
-    <div class="section-num reveal">02 · 平台运营及成果</div>
+    <div class="section-num reveal">02&ensp;·&ensp;平台运营及成果</div>
     <h2 class="reveal">我做了什么</h2>
 
     <div class="case-grid reveal-stagger">
 
-      <!-- CASE 1: 白泽基拉 -->
-      <div class="case-card glow-green">
+      <!-- CASE 1 -->
+      <div class="case-card">
         <div class="case-header">
           <div>
-            <div class="case-title">视频账号全流程运营 · 白泽基拉</div>
+            <div class="case-title">白泽基拉 · 视频账号全流程运营</div>
             <div class="case-subtitle">B站 · 游戏杂谈赛道 · 仍在运营</div>
           </div>
-          <span class="case-badge badge-green">独立操盘</span>
+          <span class="case-badge">独立操盘</span>
         </div>
         <div class="case-body">
           <div class="case-desc">
-            <p><strong>策划思路：</strong>定位游戏杂谈——不追单一游戏热点，而是围绕游戏文化、玩家记忆、设计趣闻等泛游戏话题展开，降低对特定游戏生命周期的依赖。</p>
-            <p><strong>具体动作：</strong>建立「选题→脚本→配音统筹→发布排期→数据复盘」标准化工作流。每期内容出稿后根据 24h 互动数据判断是否追投。持续优化标题话术与封面风格，提升 CTR。</p>
-            <p><strong>结果：</strong>运营期间粉丝从 15.5w 增长至 18.5w（净增 3w），均播放稳定在 16w 左右，多条内容突破 30w 播放。账号内容调性从零散选题逐步聚焦，形成了可辨识的杂谈风格。</p>
+            <p><strong>策划思路</strong>&ensp;定位游戏杂谈——不追单一游戏热点，而是围绕游戏文化、玩家记忆、设计趣闻等泛游戏话题展开，降低对特定游戏生命周期的依赖。</p>
+            <p><strong>具体动作</strong>&ensp;建立「选题 → 脚本 → 配音统筹 → 发布排期 → 数据复盘」标准化工作流。每期出稿后根据 24h 互动数据判断是否追投。</p>
+            <p><strong>结果</strong>&ensp;运营期间粉丝从 15.5w 增长至 18.5w（净增 3w），均播放稳定在 16w，多条内容突破 30w 播放。</p>
           </div>
           <div>
             <div class="case-media">
-              <a href="https://space.bilibili.com/442595489" target="_blank" title="点击查看白泽基拉B站主页">
-                <img src="homepage-screenshot.png" alt="白泽基拉B站主页截图">
+              <a href="https://space.bilibili.com/442595489" target="_blank">
+                <img src="homepage-screenshot.png" alt="白泽基拉B站主页">
               </a>
             </div>
-            <div style="text-align:center;margin-top:8px;font-size:12px;color:var(--text-tertiary);">▲ 白泽基拉 B站主页 · <a href="https://space.bilibili.com/442595489" target="_blank" style="font-size:12px;">space.bilibili.com/442595489</a></div>
+            <div class="case-media-caption">
+              白泽基拉 B站主页 · <a href="https://space.bilibili.com/442595489" target="_blank">space.bilibili.com/442595489</a>
+            </div>
           </div>
         </div>
         <div class="case-metrics">
@@ -384,28 +398,28 @@
         </div>
       </div>
 
-      <!-- CASE 2: 国电武术馆馆长 商单 -->
-      <div class="case-card glow-amber">
+      <!-- CASE 2 -->
+      <div class="case-card">
         <div class="case-header">
           <div>
-            <div class="case-title">商单脚本策划 · 国电武术馆馆长</div>
+            <div class="case-title">国电武术馆馆长 · 商单脚本策划</div>
             <div class="case-subtitle">为 B站头部游戏账号提供品牌定制内容</div>
           </div>
-          <span class="case-badge badge-amber">百万播放</span>
+          <span class="case-badge">百万播放</span>
         </div>
         <div class="case-body">
           <div class="case-desc">
-            <p><strong>策划思路：</strong>游戏商单的核心不是「介绍产品多好玩」，而是找到产品与玩家已有兴趣的交叉点。每次拿 brief 后，先拆解品牌核心卖点 → 匹配账号受众画像 → 找到既能承载品牌信息、又能让观众看完的叙事角度。</p>
-            <p><strong>具体动作：</strong>独立完成创意策划与脚本撰写，涵盖大纲→初稿→批注修改→配音适配全流程。每篇脚本都经历「品牌需求理解 → 游戏体验 → 叙事结构设计 → 笑点/情绪点埋设」四个环节。</p>
-            <p><strong>结果：</strong>经手商单脚本均播放百万级。合作品牌覆盖国内外多款主流网游，在商业信息有效传达与账号内容调性之间建立了可持续的平衡。</p>
+            <p><strong>策划思路</strong>&ensp;游戏商单的核心不是「介绍产品多好玩」，而是找到产品与玩家已有兴趣的交叉点。拆解品牌卖点 → 匹配受众画像 → 找到既承载品牌信息、又让观众看完的叙事角度。</p>
+            <p><strong>具体动作</strong>&ensp;独立完成大纲 → 初稿 → 批注修改 → 配音适配全流程。每篇脚本经历「品牌需求理解 → 游戏体验 → 叙事设计 → 情绪点埋设」四个环节。</p>
+            <p><strong>结果</strong>&ensp;经手商单均播放百万级，合作覆盖 9 个国内外主流游戏品牌。</p>
           </div>
           <div>
             <div class="case-metrics" style="margin-top:0;">
               <div><span class="metric-value">100w+</span><div class="metric-label">均播放量</div></div>
               <div><span class="metric-value">9个</span><div class="metric-label">游戏品牌</div></div>
-              <div><span class="metric-value">大纲→成片</span><div class="metric-label">全流程</div></div>
+              <div><span class="metric-value">全流程</span><div class="metric-label">大纲→成片</div></div>
             </div>
-            <div style="margin-top:16px;font-size:12px;color:var(--text-tertiary);margin-bottom:6px;">合作品牌一览</div>
+            <div style="margin-top:22px;font-size:11px;color:var(--text-tertiary);letter-spacing:0.06em;margin-bottom:8px;">合作品牌</div>
             <div class="brand-grid">
               <span class="brand-chip">AOC</span>
               <span class="brand-chip">FC足球世界</span>
@@ -421,72 +435,69 @@
         </div>
 
         <!-- 部分作品展示 -->
-        <div style="margin-top: 32px; padding-top: 28px; border-top: 1px solid var(--border);">
-          <div style="font-size: 13px; font-weight: 600; color: var(--text-tertiary); letter-spacing: 0.05em; margin-bottom: 18px;">部分作品展示</div>
-          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 28px;">
-            <div style="background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-sm); overflow: hidden; transition: all 0.3s;">
-              <a href="https://www.bilibili.com/video/BV15hE964E4r/" target="_blank" title="Arc Raiders 商单 · 点击观看">
-                <img src="commercial-arc-raiders.png" alt="Arc Raiders 商单" style="width:100%;height:auto;display:block;">
+        <div style="margin-top:36px;">
+          <div style="font-size:11px;font-weight:600;letter-spacing:0.08em;color:var(--text-tertiary);margin-bottom:16px;text-transform:uppercase;">部分作品展示</div>
+          <div class="showcase-grid">
+            <div class="showcase-item">
+              <a href="https://www.bilibili.com/video/BV15hE964E4r/" target="_blank">
+                <img src="commercial-arc-raiders.png" alt="Arc Raiders 商单">
               </a>
-              <div style="padding: 10px 14px; font-size: 12px; color: var(--text-tertiary); border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
+              <div class="showcase-item-caption">
                 <span>Arc Raiders</span>
-                <a href="https://www.bilibili.com/video/BV15hE964E4r/" target="_blank" style="font-size:11px;border:none;">观看 →</a>
+                <a href="https://www.bilibili.com/video/BV15hE964E4r/" target="_blank">观看 →</a>
               </div>
             </div>
-            <div style="background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-sm); overflow: hidden; transition: all 0.3s;">
-              <a href="https://www.bilibili.com/video/BV1Mb5X6NEuS/" target="_blank" title="三角洲 商单 · 点击观看">
-                <img src="commercial-delta.png" alt="三角洲 商单" style="width:100%;height:auto;display:block;">
+            <div class="showcase-item">
+              <a href="https://www.bilibili.com/video/BV1Mb5X6NEuS/" target="_blank">
+                <img src="commercial-delta.png" alt="三角洲 商单">
               </a>
-              <div style="padding: 10px 14px; font-size: 12px; color: var(--text-tertiary); border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
+              <div class="showcase-item-caption">
                 <span>三角洲</span>
-                <a href="https://www.bilibili.com/video/BV1Mb5X6NEuS/" target="_blank" style="font-size:11px;border:none;">观看 →</a>
+                <a href="https://www.bilibili.com/video/BV1Mb5X6NEuS/" target="_blank">观看 →</a>
               </div>
             </div>
-            <div style="background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-sm); overflow: hidden; transition: all 0.3s;">
-              <a href="https://www.bilibili.com/video/BV1E6BxBvEUv/" target="_blank" title="AOC 商单 · 点击观看">
-                <img src="commercial-aoc.png" alt="AOC 商单" style="width:100%;height:auto;display:block;">
+            <div class="showcase-item">
+              <a href="https://www.bilibili.com/video/BV1E6BxBvEUv/" target="_blank">
+                <img src="commercial-aoc.png" alt="AOC 商单">
               </a>
-              <div style="padding: 10px 14px; font-size: 12px; color: var(--text-tertiary); border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
+              <div class="showcase-item-caption">
                 <span>AOC</span>
-                <a href="https://www.bilibili.com/video/BV1E6BxBvEUv/" target="_blank" style="font-size:11px;border:none;">观看 →</a>
+                <a href="https://www.bilibili.com/video/BV1E6BxBvEUv/" target="_blank">观看 →</a>
               </div>
             </div>
           </div>
 
-          <!-- 脚本片段 -->
-          <div style="background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 24px 28px; position: relative;">
-            <div style="font-family: 'Inter', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.08em; color: var(--text-tertiary); margin-bottom: 14px; text-transform: uppercase;">脚本片段 · Arc Raiders 商单</div>
-            <div style="font-size: 14px; line-height: 1.9; color: var(--text-secondary); font-family: 'Noto Sans SC', sans-serif;">
-              <p style="margin-bottom:14px;color:var(--text);"><strong>标题：TGA年度最佳多人游戏？这款搜打撤游戏何以成为海外爆款？</strong></p>
-              <p style="margin-bottom:12px;">兄弟们，要说网游史上最长青的游戏类型，FPS游戏一定有一席之地。不管是CF、CS这样的老牌战术射击，还是像OW这种英雄射击类、又或者PUBG为代表的大逃杀，可以说是隔两年就会出一个爆款品类。那这两年最有热度的FPS品类，肯定就是搜打撤了。</p>
-              <p style="margin-bottom:12px;">最近有一款搜打撤游戏引起了我的关注——作为海外最有热度的搜打撤，它发行没几个月就拿到了TGA的年度最佳多人游戏。但比起这游戏在海外的爆火，让我感到好奇的是：<strong>为啥它在国内好像就不温不火的，并没有什么讨论度？</strong></p>
-              <p>大家好，我是馆长。本期视频我们一起来聊聊这款海内外热度有着巨大反差的爆款游戏——<strong>Arc Raiders</strong>。</p>
-            </div>
-            <div style="margin-top: 14px; font-size: 11px; color: var(--text-tertiary); letter-spacing: 0.03em;">▲ 已公开发布内容。脚本结构：热点品类锚定 → 数据反差制造悬念 → 产品引出。开头用 FPS 品类通史建立语境，用「海内外热度反差」作为钩子。</div>
+          <div class="script-excerpt">
+            <div class="script-excerpt-label">脚本片段 · Arc Raiders 商单</div>
+            <p style="margin-bottom:14px;color:var(--text);"><strong>标题：TGA年度最佳多人游戏？这款搜打撤游戏何以成为海外爆款？</strong></p>
+            <p style="margin-bottom:14px;">兄弟们，要说网游史上最长青的游戏类型，FPS游戏一定有一席之地。不管是CF、CS这样的老牌战术射击，还是像OW这种英雄射击类、又或者PUBG为代表的大逃杀，可以说是隔两年就会出一个爆款品类。那这两年最有热度的FPS品类，肯定就是搜打撤了。</p>
+            <p style="margin-bottom:14px;">最近有一款搜打撤游戏引起了我的关注——作为海外最有热度的搜打撤，它发行没几个月就拿到了TGA的年度最佳多人游戏。但比起这游戏在海外的爆火，让我感到好奇的是：<strong>为啥它在国内好像就不温不火的，并没有什么讨论度？</strong></p>
+            <p>大家好，我是馆长。本期视频我们一起来聊聊这款海内外热度有着巨大反差的爆款游戏——<strong>Arc Raiders</strong>。</p>
+            <div style="margin-top:16px;font-size:11px;color:var(--text-tertiary);letter-spacing:0.04em;">▲ 已公开发布内容。脚本结构：品类锚定 → 反差悬念 → 产品引出。开头用 FPS 通史建立语境，以「海内外热度反差」为钩子。</div>
           </div>
         </div>
       </div>
 
-      <!-- CASE 3: 腾讯 CF 综艺 -->
-      <div class="case-card glow-blue">
+      <!-- CASE 3 -->
+      <div class="case-card">
         <div class="case-header">
           <div>
             <div class="case-title">腾讯 CF 综艺 · 执行导演</div>
             <div class="case-subtitle">参与腾讯大型综艺项目的现场执行</div>
           </div>
-          <span class="case-badge badge-blue">腾讯外包</span>
+          <span class="case-badge">腾讯外包</span>
         </div>
         <div class="case-body">
           <div class="case-desc">
-            <p><strong>策划思路：</strong>作为执行导演，核心任务是理解导演组的整体调度意图，并将其在自己负责的环节中准确落地——不是「发挥创意」而是「保障执行精度」。</p>
-            <p><strong>具体动作：</strong>负责所分配环节的现场调度，协调多工种协作，在紧凑的拍摄周期内保障环节按时、按质完成。</p>
-            <p><strong>结果：</strong>顺利完成拍摄任务。这段经历让我熟悉了大厂内容制作的流程标准与协作规范——对理解品牌方、平台方的工作逻辑有直接帮助。</p>
+            <p><strong>策划思路</strong>&ensp;作为执行导演，核心任务是理解导演组调度意图，并在负责环节中准确落地——不是「发挥创意」，而是「保障执行精度」。</p>
+            <p><strong>具体动作</strong>&ensp;负责所分配环节的现场调度，协调多工种协作，在紧凑拍摄周期内保障按时按质完成。</p>
+            <p><strong>结果</strong>&ensp;顺利完成拍摄任务，熟悉了大厂内容制作的流程标准与协作规范——对理解品牌方、平台方的工作逻辑有直接帮助。</p>
           </div>
           <div>
             <div class="case-media">
               <img src="tencent-credits.jpg" alt="腾讯CF综艺片尾名单">
             </div>
-            <div style="text-align:center;margin-top:8px;font-size:12px;color:var(--text-tertiary);">▲ 片尾演职员名单</div>
+            <div class="case-media-caption">片尾演职员名单</div>
           </div>
         </div>
         <div class="case-metrics">
@@ -499,11 +510,11 @@
     </div>
 
     <!-- 选题方法论 -->
-    <div class="reveal" style="margin-top:40px;">
+    <div class="reveal" style="margin-top:48px;">
       <h3 style="margin-bottom:8px;">选题方法论</h3>
-      <p style="margin-bottom:20px;">我不做竞品分析表格。我的选题方式更接近<b>「内容雷达」</b>——保持对热点事件的敏感度，然后头脑风暴找角度。</p>
+      <p style="margin-bottom:24px;">我不做竞品分析表格。我的选题方式更接近<b>「内容雷达」</b>——保持对热点事件的敏感度，头脑风暴找角度。</p>
     </div>
-    <div class="sop-flow reveal">
+    <div class="sop-grid reveal">
       <div class="sop-step">
         <div class="sop-step-num">01</div>
         <div class="sop-step-title">热点扫描</div>
@@ -512,7 +523,7 @@
       <div class="sop-step">
         <div class="sop-step-num">02</div>
         <div class="sop-step-title">角度匹配</div>
-        <div class="sop-step-desc">这个热点跟我的账号有什么关系？观众为什么在我这看而不是别人那？</div>
+        <div class="sop-step-desc">这个热点跟我的账号有什么关系？观众为什么在我这看？</div>
       </div>
       <div class="sop-step">
         <div class="sop-step-num">03</div>
@@ -522,7 +533,7 @@
       <div class="sop-step">
         <div class="sop-step-num">04</div>
         <div class="sop-step-title">数据验证</div>
-        <div class="sop-step-desc">发布后 24h 看 CTR / 完播率 / 互动率，决定是否追投或调整方向</div>
+        <div class="sop-step-desc">24h 看 CTR / 完播率 / 互动率，决定追投或调整</div>
       </div>
     </div>
   </div>
@@ -531,37 +542,37 @@
 <!-- ═══════════ 03 内容审美 ═══════════ -->
 <section id="aesthetic">
   <div class="container">
-    <div class="section-num reveal">03 · 内容审美</div>
+    <div class="section-num reveal">03&ensp;·&ensp;内容审美</div>
     <h2 class="reveal">不设计，但有判断</h2>
-    <p class="reveal" style="margin-bottom:36px;">我不做后期，不碰剪辑软件。但一条视频的封面能不能让人点、标题能不能让人停、内容节奏能不能让人看完——这些判断，来自运营经验，不是设计软件。</p>
+    <p class="reveal" style="margin-bottom:40px;">我不做后期，不碰剪辑软件。但封面能不能让人点、标题能不能让人停、节奏能不能让人看完——这些判断，来自运营经验。</p>
 
     <div class="aesthetic-grid reveal-stagger">
       <div class="aesthetic-card">
-        <span class="aesthetic-icon">🎯</span>
+        <span class="aesthetic-card-num">01</span>
         <div class="aesthetic-title">封面 & 标题逻辑</div>
         <div class="aesthetic-desc">
-          封面和标题的<b>核心是紧扣热点事件</b>。热点 = 流量窗口，热点话题天然自带搜索量和推荐权重。我的判断标准不是「好不好看」，而是——<strong>三秒内能不能让目标观众理解这期在讲什么，以及这件事跟他们有什么关系？</strong>文字要大、信息要少、情绪要对，同时让标题里出现观众正在搜的关键词。
+          核心是<strong>紧扣热点事件</strong>。热点 = 流量窗口，天然自带搜索量和推荐权重。判断标准不是「好不好看」，而是——<strong>三秒内能不能让目标观众理解这期在讲什么，以及这件事跟他们有什么关系？</strong>
         </div>
       </div>
       <div class="aesthetic-card">
-        <span class="aesthetic-icon">📝</span>
+        <span class="aesthetic-card-num">02</span>
         <div class="aesthetic-title">流量判断力</div>
         <div class="aesthetic-desc">
-          不是每个热点都值得追。<strong>判断标准：热点是否跟账号受众有交集？</strong>比如某个游戏出了新版本——我的观众在聊这件事吗？这个话题能在标题里讲清楚吗？热点是放大器，但放大的前提是「方向对了」。没有这个判断，追热点就是碰运气。
+          不是每个热点都值得追。<strong>判断标准：热点是否跟账号受众有交集？</strong>比如某游戏出了新版本——我的观众在聊吗？标题能讲清楚吗？热点是放大器，但前提是「方向对了」。
         </div>
       </div>
       <div class="aesthetic-card">
-        <span class="aesthetic-icon">🎬</span>
+        <span class="aesthetic-card-num">03</span>
         <div class="aesthetic-title">内容节奏感</div>
         <div class="aesthetic-desc">
-          脚本不是写到结尾就完了。<strong>开头抛出问题，是提升 3 秒留存率最有效的手段。</strong>前 3 秒观众在判断「这视频值不值得看」——用一个具体的问题开场，比陈述句更能制造悬念和参与感。后面则是对观众注意力的持续预判：哪里该抛梗、哪里该给干货、哪里该收、哪里该引导互动。这是写了几百条脚本之后才能形成的肌肉记忆。
+          <strong>开头抛出问题，是提升 3 秒留存率最有效的手段。</strong>前 3 秒观众在判断「值不值得看」——用具体问题开场，比陈述句更能制造悬念。后面则是持续预判注意力：哪里抛梗、哪里给干货、哪里引导互动。
         </div>
       </div>
     </div>
 
-    <div class="screenshot-showcase reveal">
+    <div class="screenshot-full reveal">
       <img src="homepage-screenshot.png" alt="白泽基拉B站主页封面展示">
-      <div class="screenshot-caption">▲ 白泽基拉 B站主页 · 封面即内容的第一印象——每张封面都在回答「这期聊什么」</div>
+      <div class="screenshot-full-caption">白泽基拉 B站主页 · 封面即内容的第一印象</div>
     </div>
   </div>
 </section>
@@ -569,68 +580,56 @@
 <!-- ═══════════ 04 方法论总结 ═══════════ -->
 <section id="methodology">
   <div class="container">
-    <div class="section-num reveal">04 · 方法论总结</div>
+    <div class="section-num reveal">04&ensp;·&ensp;方法论总结</div>
     <h2 class="reveal">我怎么做内容</h2>
-    <p class="reveal" style="margin-bottom:32px;">进入任何一个新赛道，我的策划逻辑如下。这套框架不限于游戏——放在任何需要「把内容变成传播」的场景里都适用。</p>
+    <p class="reveal" style="margin-bottom:36px;">进入任何一个新赛道，我的策划逻辑如下。这套框架不限于游戏——任何需要「把内容变成传播」的场景都适用。</p>
 
-    <div class="reveal-stagger">
-      <div class="method-step">
+    <div class="method-list reveal-stagger">
+      <div class="method-step-item">
         <div class="method-step-num">1</div>
         <div class="method-step-content">
           <h4>确定产品是什么</h4>
-          <p>一个视频账号是产品，一期内容是产品，一条商单也是产品。先定义清楚「我做的是什么」，才能讨论后面的所有问题。</p>
+          <p>一个视频账号是产品，一期内容是产品，一条商单也是产品。先定义清楚「我做的是什么」。</p>
         </div>
       </div>
-      <div class="method-step">
+      <div class="method-step-item">
         <div class="method-step-num">2</div>
         <div class="method-step-content">
           <h4>结合产品确定用户画像</h4>
-          <p>谁会看？他们在什么场景下看？比如游戏杂谈的观众大多在吃饭/睡前刷 B 站——他们需要的是「陪伴感 + 信息增量」，不是深度论文。</p>
+          <p>谁会看？他们在什么场景下看？游戏杂谈的观众大多在吃饭/睡前刷 B 站——需要的是「陪伴感 + 信息增量」。</p>
         </div>
       </div>
-      <div class="method-step">
+      <div class="method-step-item">
         <div class="method-step-num">3</div>
         <div class="method-step-content">
           <h4>找到场景痛点 & 需求</h4>
-          <p>用户在这个场景下有什么痛点？比如「想了解某款新游戏但没时间自己研究」→ 需求就是「有人帮我在 8 分钟内讲明白值不值得玩」。</p>
+          <p>「想了解某款新游戏但没时间自己研究」→ 需求是「有人帮我在 8 分钟内讲明白值不值得玩」。</p>
         </div>
       </div>
-      <div class="method-step">
+      <div class="method-step-item">
         <div class="method-step-num">4</div>
         <div class="method-step-content">
           <h4>给出解决方案</h4>
-          <p>基于前面的分析，选择合适的内容类型。不同需求对应不同的内容形态——</p>
+          <p>基于前面的分析，选择合适的内容类型——</p>
         </div>
       </div>
     </div>
 
-    <div class="solution-types reveal">
-      <div class="solution-type">
-        <span class="solution-type-icon">📖</span>
-        <div class="solution-type-name">干货教程</div>
-      </div>
-      <div class="solution-type">
-        <span class="solution-type-icon">🎁</span>
-        <div class="solution-type-name">产品本身</div>
-      </div>
-      <div class="solution-type">
-        <span class="solution-type-icon">📖</span>
-        <div class="solution-type-name">案例 / 客户故事</div>
-      </div>
-      <div class="solution-type">
-        <span class="solution-type-icon">💬</span>
-        <div class="solution-type-name">情绪共鸣</div>
-      </div>
+    <div class="solution-grid reveal">
+      <div class="solution-type"><div class="solution-type-name">干货教程</div></div>
+      <div class="solution-type"><div class="solution-type-name">产品本身</div></div>
+      <div class="solution-type"><div class="solution-type-name">案例 / 客户故事</div></div>
+      <div class="solution-type"><div class="solution-type-name">情绪共鸣</div></div>
     </div>
 
-    <p class="reveal" style="text-align:center;color:var(--text-tertiary);font-size:14px;">具体选哪种，取决于用户需求和平台分发逻辑——没有万能公式，但有可重复的判断框架。</p>
+    <p class="reveal" style="text-align:center;color:var(--text-tertiary);font-size:13px;">具体选哪种，取决于用户需求和平台分发逻辑——没有万能公式，但有可重复的判断框架。</p>
   </div>
 </section>
 
 <!-- ═══════════ CONTACT ═══════════ -->
 <section id="contact">
   <div class="container">
-    <div class="section-num reveal">联系方式</div>
+    <div class="section-num reveal">Contact</div>
     <h2 class="reveal">聊聊</h2>
     <p class="reveal" style="margin-bottom:44px;">如果你正在找一位能独立跑通视频账号全流程的新媒体运营——欢迎联系。</p>
 
@@ -643,17 +642,13 @@
         <div class="contact-label">微信</div>
         <div class="contact-value">15295746091</div>
       </div>
-      <div class="contact-item">
-        <div class="contact-label">B站账号</div>
-        <div class="contact-value"><a href="https://space.bilibili.com/442595489" target="_blank">白泽基拉 →</a></div>
-      </div>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="container">
-    © 2026 张睿 &nbsp;·&nbsp; <a href="https://github.com/t2w9ybbtcn-svg/portfolio" target="_blank">GitHub</a>
+    © 2026 张睿 &nbsp;·&nbsp; <a href="https://space.bilibili.com/442595489" target="_blank">白泽基拉</a> &nbsp;·&nbsp; <a href="https://github.com/t2w9ybbtcn-svg/portfolio" target="_blank">GitHub</a>
   </div>
 </footer>
 
